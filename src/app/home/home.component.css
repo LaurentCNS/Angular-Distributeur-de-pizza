@@ -1,0 +1,17 @@
+.pictureSize{
+    width: 250px;
+}
+
+.card{
+    cursor: pointer;
+    height: 380px;
+}
+
+.card-body:hover{
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 18px 50px -10px;
+}
+
+.buttonReturn{    
+    width: 300px;
+    height: 80px;
+}

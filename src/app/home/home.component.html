@@ -1,0 +1,28 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row d-flex justify-content-evenly">
+    <div class="col-lg-4 col-md-6 col-sm-8 mb-5  d-flex justify-content-center">
+      <div [routerLink]="['/main']" class="card text-center " style="width: 25rem">
+        <div class="card-body">
+          <h1 class="strong card-title"><strong>COMMANDER</strong></h1>
+          <p class="card-text">Continuez sans aucune inscription</p>
+          <img class="pictureSize" src="../assets/img/pizzaEnter.png" alt="">
+        </div>
+      </div>
+    </div>
+    <div [routerLink]="['/login']" class="col-lg-4 col-md-6 col-sm-8 d-flex justify-content-center">
+      <div class="card text-center" style="width: 25rem">
+        <div class="card-body">
+          <h1 class="card-title"><strong>ME CONNECTER</strong></h1>
+          <p class="card-text">Bénificiez d'avatages et promotion</p>
+          <img class="pictureSize" src="../assets/img/loginEnter.png" alt="">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container mt-3 pb-5">
+  <div class="row d-flex justify-content-evenly">
+    <button [routerLink]="'/'" type="submit" class="btn btn-danger text-center buttonReturn mt-5">RETOUR A LA PAGE D'ACCUEIL</button>
+  </div>
+</div>

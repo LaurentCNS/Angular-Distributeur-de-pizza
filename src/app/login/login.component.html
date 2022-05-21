@@ -1,0 +1,37 @@
+<app-header></app-header>
+<div class="container">
+
+  <div class="card  mx-auto" style="width: 30rem">
+    <div class="card-body">
+
+      <h1 class="strong card-title text-center"><strong>MON COMPTE</strong></h1>
+      <form #form="ngForm" (ngSubmit)="login()">
+
+        <div class="mb-3 mt-3 px-3">
+          <label for="user" class="form-label"></label>
+          <input type="number" class="form-control" placeholder="NUMERO DE TELEPHONE" id="user" name="user"
+            #user="ngModel" required [(ngModel)]="userPhone">
+        </div>
+
+        <div class="mb-5 px-3">
+          <label for="password" class="form-label"></label>
+          <input type="password" class="form-control" placeholder="MOT DE PASSE" id="password" name="password"
+            #password="ngModel" required [(ngModel)]="userPassword">
+        </div>
+
+        <div class="px-3 mb-3 d-flex justify-content-between">
+          <button [disabled]="'button'" class="btn btn-warning ps-3 text-center button">CREER</button>
+          <button [disabled]="!form.valid" type="submit"
+            class="btn btn-success ps-3 text-center button">CONNEXION</button>
+        </div>
+
+      </form>
+      <div id="emailHelp" class=" mt-3 mb-3 form-text text-center">( ACCES ADMINISTRATEUR = "1234" et "admin" )</div>
+    </div>
+  </div>
+</div>
+<div class="container mt-5 pb-5">
+  <div class="row d-flex justify-content-evenly">
+    <button [routerLink]="'/home'" type="submit" class="btn btn-danger text-center buttonReturn">RETOUR</button>
+  </div>
+</div>
