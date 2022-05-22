@@ -1,7 +1,9 @@
 <app-header></app-header>
+<div class="login">
 <div class="container">
-
-  <div class="card  mx-auto" style="width: 30rem">
+  <div class="row">
+<div class="col-lg-12 col-md-12 col-sm-12 col-12 mb-3 d-flex justify-content-center">
+  <div class="card  " style="width: 45rem">
     <div class="card-body">
 
       <h1 class="strong card-title text-center"><strong>MON COMPTE</strong></h1>
@@ -20,7 +22,7 @@
         </div>
 
         <div class="px-3 mb-3 d-flex justify-content-between">
-          <button [disabled]="'button'" class="btn btn-warning ps-3 text-center button">CREER</button>
+          <button [disabled]="'button'" class="btn btn-warning ps-3 me-3 text-center button">CREER</button>
           <button [disabled]="!form.valid" type="submit"
             class="btn btn-success ps-3 text-center button">CONNEXION</button>
         </div>
@@ -30,8 +32,11 @@
     </div>
   </div>
 </div>
+</div>
+</div>
 <div class="container mt-5 pb-5">
   <div class="row d-flex justify-content-evenly">
-    <button [routerLink]="'/home'" type="submit" class="btn btn-danger text-center buttonReturn">RETOUR</button>
+    <button [routerLink]="'/home'" type="submit" class="btn btn-secondary text-center buttonReturn">RETOUR</button>
   </div>
+</div>
 </div>

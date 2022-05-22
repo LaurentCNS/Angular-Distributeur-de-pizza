@@ -1,7 +1,7 @@
 .start{
     height: 100%;
     cursor: pointer;
-    background-color: red;
+    background-color: #E20131;    
 }
 
 .start h1{
@@ -10,11 +10,27 @@
     padding-top: 250px
 }
 
+@media (max-width: 390px) { 
+
+  .start h1{
+    padding-top: 150px
+}
+
+}
+
 .start p{
     color: white;
     position: absolute;
     bottom: 0;
     right: 5%;
+}
+
+@media (max-width: 280px) { 
+
+  img{
+    width: 280px;
+}
+
 }
 
 .animate-charcter
