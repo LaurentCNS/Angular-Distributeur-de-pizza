@@ -14,6 +14,7 @@ import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
 import { FooterComponent } from './footer/footer.component';
 import { StartComponent } from './start/start.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 
@@ -38,6 +39,7 @@ import { StartComponent } from './start/start.component';
     BrowserAnimationsModule,
     FormsModule,
     ToastrModule.forRoot(),
+    FontAwesomeModule,
     
     
   

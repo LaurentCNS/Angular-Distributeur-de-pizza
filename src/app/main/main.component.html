@@ -1,21 +1,42 @@
 <app-header></app-header>
 
-<div class="container">
+<div class="container-fluid">
   <div class="row">
-    <div *ngFor="let item of pizzas">
-      
-        <div class="col-lg-4 col-md-6 col-sm-8 mb-5 ">
-          <div class="card" style="width: 18rem;">
-            <img src="../../assets/pizzas/{{item.picture}}" class="card-img-top" alt="{{item.picture}}">
-            <div class="card-body">
-              <h5 class="card-title">{{item.name}}</h5>
-              <p class="card-text">Ingredients : {{item.composant1}} {{item.composant2}} {{item.composant3}}
-                {{item.composant4}} {{item.composant5}} {{item.composant6}} {{item.composant7}} {{item.composant8}}</p>
-              <a href="#" class="btn btn-primary">Go somewhere</a>
+    <div *ngFor="let item of pizzas | slice:0:6; let i=index"
+      class="col-xxl-2 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5 d-flex justify-content-center">
+      <div class="card" style="width: 15rem;">
+        <img src="../../assets/pizzas/{{item.picture}}" class="card-img-top mb-3" alt="{{item.picture}}">
+        <div class="card-body">
+          <h2 class="card-title pb-3">{{item.name}}</h2>
+          <div class="row d-flex justify-content-around pb-3">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+              <p class="cold cold-name">FROID</p>
+              <p class="cold cold-price">{{item.priceCold | number : '.2-2'}}€</p>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-4">
+              <p class="hot hot-name">CHAUD</p>
+              <p class="hot hot-price">{{item.priceHot | number : '.2-2'}}€</p>
             </div>
           </div>
+          <div class="d-flex justify-content-center pt-3 pb-3">
+            <button class="btn btn-danger text-center buttonDetail">DETAILS</button>
+          </div>
         </div>
-      
+      </div>
     </div>
   </div>
 </div>
+<div class="container mb-5">
+  <div class="row">
+    <div class=" d-flex justify-content-evenly">
+      <div class="pe-5">
+        <fa-icon class="arrowLeftEnable" (click)="clickLeft()"  [icon]="faLeft"></fa-icon>
+      </div>
+      <div class="ps-5">
+        <fa-icon (click)="clickRight()"  [icon]="faLeft"  [icon]="faRight"></fa-icon>
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-footer></app-footer>
