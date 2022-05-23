@@ -12,9 +12,9 @@ import { LoginComponent } from './login/login.component';
 import { AdminComponent } from './admin/admin.component';
 import { FormsModule } from '@angular/forms';
 import { ToastrModule } from 'ngx-toastr';
-import { FooterComponent } from './footer/footer.component';
 import { StartComponent } from './start/start.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
+import { DetailsComponent } from './details/details.component';
 
 
 
@@ -28,8 +28,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     MainComponent,
     LoginComponent,
     AdminComponent,
-    FooterComponent,
     StartComponent,
+    DetailsComponent,
    
   ],
   imports: [
@@ -38,7 +38,7 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
     NgbModule,
     BrowserAnimationsModule,
     FormsModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({timeOut: 3000}),
     FontAwesomeModule,
     
     

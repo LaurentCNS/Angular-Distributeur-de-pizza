@@ -8,18 +8,18 @@
         <img src="../../assets/pizzas/{{item.picture}}" class="card-img-top mb-3" alt="{{item.picture}}">
         <div class="card-body">
           <h2 class="card-title pb-3">{{item.name}}</h2>
-          <div class="row d-flex justify-content-around pb-3">
-            <div class="col-lg-4 col-md-4 col-sm-4 col-4">
-              <p class="cold cold-name">FROID</p>
+          <div class="row d-flex pb-3">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+              <p class="cold cold-name">FROIDE</p>
               <p class="cold cold-price">{{item.priceCold | number : '.2-2'}}€</p>
             </div>
-            <div class="col-lg-4 col-md-4 col-sm-4 col-4">
-              <p class="hot hot-name">CHAUD</p>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-6">
+              <p class="hot hot-name">CHAUDE</p>
               <p class="hot hot-price">{{item.priceHot | number : '.2-2'}}€</p>
             </div>
           </div>
           <div class="d-flex justify-content-center pt-3 pb-3">
-            <button class="btn btn-danger text-center buttonDetail">DETAILS</button>
+            <button [routerLink]="['/details',item.id]" class="btn btn-danger text-center buttonDetail">DETAILS</button>
           </div>
         </div>
       </div>
@@ -30,13 +30,26 @@
   <div class="row">
     <div class=" d-flex justify-content-evenly">
       <div class="pe-5">
-        <fa-icon class="arrowLeftEnable" (click)="clickLeft()"  [icon]="faLeft"></fa-icon>
+        <fa-icon class="arrowLeftEnable" (click)="clickLeft()" [icon]="faLeft"></fa-icon>
       </div>
       <div class="ps-5">
-        <fa-icon (click)="clickRight()"  [icon]="faLeft"  [icon]="faRight"></fa-icon>
+        <fa-icon (click)="clickRight()" [icon]="faLeft" [icon]="faRight"></fa-icon>
       </div>
     </div>
   </div>
 </div>
 
-<app-footer></app-footer>
+<!--FOOTER-->
+
+<div class="container-fluid footer pb-3">
+  <div class="row">
+    <div class=" d-flex justify-content-between">
+      <div>
+        <button [routerLink]="['/home']" class="btn btn-danger text-center buttonRetour ">RETOUR</button>
+      </div>
+      <div>
+        <button class="btn btn-success text-center buttonPanier ">ACCEDER A MON PANIER</button>
+      </div>
+    </div>
+  </div>
+</div>

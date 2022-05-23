@@ -13,9 +13,10 @@ export class Pizza {
     composant6 ?: string;
     composant7 ?: string;
     composant8 ?: string;
+    composant9 ?: string;
     
 
-    constructor (id ?: number, name ?: string, picture ?: string ,priceCold ?: number, priceHot ?: number, bonus ?: number, composant1 ?: string, composant2 ?: string, composant3 ?: string, composant4 ?: string, composant5 ?: string, composant6 ?: string, composant7 ?: string, composant8 ?: string){
+    constructor (id ?: number, name ?: string, picture ?: string ,priceCold ?: number, priceHot ?: number, bonus ?: number, composant1 ?: string, composant2 ?: string, composant3 ?: string, composant4 ?: string, composant5 ?: string, composant6 ?: string, composant7 ?: string, composant8 ?: string, composant9 ?: string){
         this.id = id;
         this.name = name;
         this.picture = picture;
@@ -30,6 +31,7 @@ export class Pizza {
         this.composant6 = composant6;   
         this.composant7 = composant7;   
         this.composant8 = composant8;   
+        this.composant9 = composant9;
             
     }
 }

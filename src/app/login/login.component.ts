@@ -24,7 +24,7 @@ export class LoginComponent implements OnInit {
         this.toastr.success('Bonjour Admin, content de vous revoir!')
         this.router.navigate(["/admin"]);
       }else{
-        this.toastr.error('Mot de passe incorrect. Recommencer!')
+        this.toastr.warning('Mot de passe incorrect. Recommencer!')
         this.badLogin = true;
       }      
     }

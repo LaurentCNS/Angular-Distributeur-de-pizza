@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Pizza } from '../class/pizzas';
 import { PizzasService } from '../pizzas.service';
-import { faAngleLeft, faAngleRight } from '@fortawesome/free-solid-svg-icons';
+import { faCircleChevronLeft, faCircleChevronRight } from '@fortawesome/free-solid-svg-icons';
 import { isNgTemplate } from '@angular/compiler';
 
 
@@ -15,8 +15,8 @@ export class MainComponent implements OnInit {
 
 
   pizzas: Pizza[] = this.pizzaService.pizzaCreate;
-  faLeft = faAngleLeft;
-  faRight = faAngleRight;
+  faLeft = faCircleChevronLeft;
+  faRight = faCircleChevronRight;
 
  
 

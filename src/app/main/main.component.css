@@ -30,7 +30,7 @@ h2{
 }
 
 .hot-price{
-    font-size: 15px;
+    font-size: 20px;
     font-weight: bold
     
 }
@@ -41,7 +41,7 @@ h2{
 }
 
 .cold-price{
-    font-size: 15px;
+    font-size: 20px;
     font-weight: bold;
 }
 
@@ -62,34 +62,22 @@ h1{
     
 }
 
-.animate-charcter
-{
-    font-size: 34px;    
-   text-transform: uppercase;
-  background-image: linear-gradient(
-    -225deg,
-    #000000 0%,
-    #cf1515 20%,
-    #464343 50%,
-    #474343 70%,
-    #0c0b0b 150%
-    
-  );
-  background-size: auto auto;
-  background-clip: border-box;
-  background-size: 200% auto;
-  color: #fff;
-  background-clip: text;
-  text-fill-color: transparent;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: textclip 2s reverse infinite;
-  display: inline-block;
-      font-size: 34px;
+/*FOOTER*/
+
+.buttonRetour{
+    width: 150px;
+    height: 80px;    
 }
 
-@keyframes textclip {
-  to {
-    background-position: 200% center;
-  }
+.buttonPanier{
+    width: 272px;
+    height: 80px;    
+}
+
+@media (max-width: 450px) { 
+
+    .buttonPanier{
+        width: 150px;   
+    }
+
 }
