@@ -57,23 +57,75 @@ h2{
 
 
 
- 
- /*FOOTER*/
-
 .buttonRetour{
     width: 150px;
-    height: 80px;    
+    height: 80px; 
+    margin-top: 24px;   
 }
 
 .buttonPanier{
     width: 272px;
-    height: 80px;    
+    height: 80px;  
+    margin-top: 24px;  
 }
+
+
+
 
 @media (max-width: 450px) { 
 
     .buttonPanier{
         width: 150px;   
     }
+}
 
+@media (max-width: 340px) { 
+
+    .buttonPanier{
+        width: 120px;
+        height: 100px;    
+    }
+
+    .buttonRetour{
+        width: 120px;
+        height: 100px;    
+    }
+
+}
+
+.faColdButton{
+    font-size:80px;
+    color: rgb(48, 95, 248);
+}
+
+.faHotButton{
+    font-size: 80px;
+    color: red;
+}
+
+@media (max-width: 576px) { 
+
+    .faColdButton{
+        font-size:60px;
+    }
+
+    .faHotButton{
+        font-size:60px;
+    }
+
+}
+
+@media (max-width: 325px) { 
+
+    .faColdButton{
+        font-size:45px;
+    }
+
+    .faHotButton{
+        font-size:45px;
+    }
+}
+
+.faInfo{
+    font-size: 20px;
 }

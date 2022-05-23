@@ -15,6 +15,8 @@ import { ToastrModule } from 'ngx-toastr';
 import { StartComponent } from './start/start.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DetailsComponent } from './details/details.component';
+import { CreatorComponent } from './creator/creator.component';
+import { ListComponent } from './list/list.component';
 
 
 
@@ -30,6 +32,8 @@ import { DetailsComponent } from './details/details.component';
     AdminComponent,
     StartComponent,
     DetailsComponent,
+    CreatorComponent,
+    ListComponent,
    
   ],
   imports: [
@@ -38,7 +42,7 @@ import { DetailsComponent } from './details/details.component';
     NgbModule,
     BrowserAnimationsModule,
     FormsModule,
-    ToastrModule.forRoot({timeOut: 3000}),
+    ToastrModule.forRoot({timeOut: 5000}),
     FontAwesomeModule,
     
     

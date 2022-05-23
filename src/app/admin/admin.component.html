@@ -1,1 +1,31 @@
 <app-header></app-header>
+<div class="home">
+<div class="container">
+  <div class="row d-flex justify-content-evenly">
+    <div class="col-lg-6 col-md-6 col-sm-8 d-flex justify-content-center cardSetup">
+      <div [routerLink]="['/list']" class="card text-center " style="width: 35rem">
+        <div class="card-body">
+          <h1 class="strong card-title"><strong>LISTE DES PIZZAS</strong></h1>
+          <p class="card-text"><strong>Retrouvez les pizzas disponibles pour vos clients.</strong></p>
+          <img class="pictureSize" src="../assets/img/liste.png" alt="">
+        </div>
+      </div>
+    </div>
+    <div [routerLink]="['/creator']" class="col-lg-6 col-md-6 col-sm-8 d-flex justify-content-center">
+      <div class="card text-center" style="width: 35rem">
+        <div class="card-body">
+          <h1 class="card-title"><strong>CREER DES PIZZAS</strong></h1>
+          <p class="card-text upper-case"><strong>Outil de création de pizzas pour votre base de données.</strong></p>
+          <img class="pictureSize" src="../assets/img/setup.png" alt="">
+        </div>
+      </div>
+    </div>
+  
+</div>
+<div class="container">
+  <div class="row d-flex justify-content-evenly">
+    <button [routerLink]="'/home'" type="submit" class="btn btn-secondary text-center buttonReturn mt-5">SE DECONNECTER</button>
+    
+  </div>
+</div>
+</div>

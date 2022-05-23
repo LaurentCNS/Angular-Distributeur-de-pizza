@@ -2,6 +2,7 @@ export class Pizza {
     id ?: number;
     name ?: string;
     picture ?: string;
+    information ?: string;
     priceCold ?: number;
     priceHot ?: number;
     bonus ?: number;
@@ -16,10 +17,11 @@ export class Pizza {
     composant9 ?: string;
     
 
-    constructor (id ?: number, name ?: string, picture ?: string ,priceCold ?: number, priceHot ?: number, bonus ?: number, composant1 ?: string, composant2 ?: string, composant3 ?: string, composant4 ?: string, composant5 ?: string, composant6 ?: string, composant7 ?: string, composant8 ?: string, composant9 ?: string){
+    constructor (id ?: number, name ?: string, picture ?: string , information ?: string, priceCold ?: number, priceHot ?: number, bonus ?: number, composant1 ?: string, composant2 ?: string, composant3 ?: string, composant4 ?: string, composant5 ?: string, composant6 ?: string, composant7 ?: string, composant8 ?: string, composant9 ?: string){
         this.id = id;
         this.name = name;
         this.picture = picture;
+        this.information = information;
         this.priceCold = priceCold;
         this.priceHot = priceHot;
         this.bonus = bonus;  

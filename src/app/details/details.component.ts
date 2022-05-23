@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Pizza } from '../class/pizzas';
 import { PizzasService } from '../pizzas.service';
-import { faSnowflake, faFire, faCirclePlus, faCircleMinus } from '@fortawesome/free-solid-svg-icons';
+import { faSnowflake, faFire, faCirclePlus, faCircleMinus, faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-details',
@@ -16,6 +16,7 @@ export class DetailsComponent implements OnInit {
   faHot = faFire;
   faRemove = faCircleMinus;
   faAdd = faCirclePlus;
+  faInfo = faCircleInfo
 
   constructor(private pizzaService : PizzasService,
               private activatedRoute : ActivatedRoute

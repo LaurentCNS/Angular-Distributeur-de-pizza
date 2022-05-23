@@ -11,24 +11,24 @@
 
         <div class="mb-3 mt-3 px-3">
           <label for="user" class="form-label"></label>
-          <input type="number" class="form-control" placeholder="NUMERO DE TELEPHONE" id="user" name="user"
+          <input type="text" class="form-control" placeholder="NUMERO DE TELEPHONE" id="user" name="user"  maxlength="10" minlength="1"
             #user="ngModel" required [(ngModel)]="userPhone">
         </div>
 
         <div class="mb-5 px-3">
           <label for="password" class="form-label"></label>
-          <input type="password" class="form-control" placeholder="MOT DE PASSE" id="password" name="password"
+          <input type="password" class="form-control" placeholder="MOT DE PASSE" id="password" name="password" maxlength="30" minlength="1"
             #password="ngModel" required [(ngModel)]="userPassword">
         </div>
 
         <div class="px-3 mb-3 d-flex justify-content-between">
-          <button [disabled]="'button'" class="btn btn-warning ps-3 me-3 text-center button">CREER</button>
+          <button [disabled]="'button'" class="btn btn-warning ps-3 me-3 text-center button buttonCreate">CREER</button>
           <button [disabled]="!form.valid" type="submit"
             class="btn btn-success ps-3 text-center button">CONNEXION</button>
         </div>
 
       </form>
-      <div id="emailHelp" class=" mt-3 mb-3 form-text text-center">( ACCES ADMINISTRATEUR = "1234" et "admin" )</div>
+      <div id="emailHelp" class=" mt-3 mb-3 form-text text-center"><strong>*** ACCES ADMINISTRATEUR = "1234" et "admin" ***</strong></div>
     </div>
   </div>
 </div>

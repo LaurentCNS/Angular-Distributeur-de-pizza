@@ -1,5 +1,7 @@
 <app-header></app-header>
 
+<!--CARD PIZZA-->
+
 <div class="container d-flex justify-content-center details">
     <div class="card mb-3" style="max-width: 1600px;">
         <div class="row g-0">
@@ -73,49 +75,51 @@
     </div>
 </div>
 
-<div class="container d-flex justify-content-center mt-3">
-    <div class="col-md-3" style="max-width: 1600px;">
-        <div class="row">
+<!--CARD INFO-->
+
+<div class="container d-flex justify-content-center mb-5">
+<div class="card">
+    <div class="card-header">
+        <fa-icon class="faInfo mt-2" [icon]="faInfo"></fa-icon>
+    <span class="ms-2">Information santé :</span> 
+    </div>
+    <div class="card-body">
+      <p *ngIf="!pizzas.information" class="card-text">Aucune information relative à cette pizza.</p>
+      <p *ngIf="pizzas.information" class="card-text">{{pizzas.information}}</p>
+    </div>
+  </div>
+</div>
 
 
-            <div class="col-md-4">
-                <fa-icon class="faCold" [icon]="faRemove"></fa-icon>
+<!--ADD TO CART-->
+
+<div class="container d-flex justify-content-evenly mt-3 mb-4">
+    <div class="col-xl-3 col-lg-4 col-md-3 col-sm-6 col-6">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-4 col-md-6 col-sm-5 col-5">
+                <fa-icon class="faColdButton" [icon]="faRemove"></fa-icon>
+            </div>           
+            <div class="col-lg-4 col-md-6 col-sm-5 col-5">
+                <fa-icon class="faColdButton" [icon]="faAdd"></fa-icon>
             </div>
-            <div class="col-md-4">
-                <p>0</p>
-            </div>
-            <div class="col-md-4">
-                <fa-icon class="faCold" [icon]="faAdd"></fa-icon>
-            </div>
-
-
         </div>
     </div>
-    <div class="col-md-3" style="max-width: 1600px;">
-        <div class="row">
-
-
-            <div class="col-md-4">
-                <fa-icon class="faHot" [icon]="faRemove"></fa-icon>
+    <div class="col-xl-3 col-lg-4 col-md-3 col-sm-6 col-6">
+        <div class="row d-flex justify-content-center">
+            <div class="col-lg-4 col-md-6 col-sm-5 col-5">
+                <fa-icon class="faHotButton" [icon]="faRemove"></fa-icon>
             </div>
-            <div class="col-md-4">
-                <p>0</p>
+            <div class="col-lg-4 col-md-6 col-sm-5 col-5">
+                <fa-icon class="faHotButton" [icon]="faAdd"></fa-icon>
             </div>
-            <div class="col-md-4">
-                <fa-icon class="faHot" [icon]="faAdd"></fa-icon>
-            </div>
-
-
         </div>
     </div>
 </div>
 
 
-
-
 <!--FOOTER-->
 
-<div class="container-fluid footer pb-3">
+<div class="container-fluid footer">
     <div class="row">
         <div class=" d-flex justify-content-between">
             <div>
