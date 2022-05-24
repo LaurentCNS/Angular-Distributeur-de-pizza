@@ -17,6 +17,8 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { DetailsComponent } from './details/details.component';
 import { CreatorComponent } from './creator/creator.component';
 import { ListComponent } from './list/list.component';
+import { EditComponent } from './edit/edit.component';
+import { ViewComponent } from './view/view.component';
 
 
 
@@ -34,6 +36,8 @@ import { ListComponent } from './list/list.component';
     DetailsComponent,
     CreatorComponent,
     ListComponent,
+    EditComponent,
+    ViewComponent,
    
   ],
   imports: [

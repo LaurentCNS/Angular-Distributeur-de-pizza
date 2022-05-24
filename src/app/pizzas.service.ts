@@ -8,6 +8,7 @@ export class PizzasService {
 
   pizzaCreate : Pizza [] = [
 
+      
     new Pizza (1,'Leonardo','img0.jpg',`Risque d'allérgènes: Gluten, oeuf / Nutri-score C`,8.50,8.90,10,'sauce tomate','mozzarella'),
     new Pizza (2,'Michelangelo','img1.jpg',``,8.90,9.30,10,'sauce tomate','mozzarella','jambon','champigon'),
     new Pizza (3,'Donatello','img2.jpg',``,9.50,9.90,10,'sauce tomate','mozzarella','pepperoni'),

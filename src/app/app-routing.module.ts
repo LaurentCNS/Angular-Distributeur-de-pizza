@@ -8,6 +8,7 @@ import { ListComponent } from './list/list.component';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { StartComponent } from './start/start.component';
+import { ViewComponent } from './view/view.component';
 
 const routes: Routes = [
   { path: '', component: StartComponent },
@@ -18,6 +19,7 @@ const routes: Routes = [
   { path: 'details/:id', component: DetailsComponent },
   { path: 'list', component: ListComponent },
   { path: 'creator', component: CreatorComponent },
+  { path: 'view/:id', component: ViewComponent },
 ];
 
 @NgModule({

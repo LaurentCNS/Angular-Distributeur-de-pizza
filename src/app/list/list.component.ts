@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Pizza } from '../class/pizzas';
+import { PizzasService } from '../pizzas.service';
+import { faCircleInfo, faEye, faPen, faPenToSquare } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-list',
@@ -7,7 +10,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+  pizzas : Pizza[] = this.pizzasService.pizzaCreate;
+  faPen = faPen;
+  faEye = faEye;
+  faInfo = faCircleInfo;
+
+  constructor(private pizzasService : PizzasService) { }
 
   ngOnInit(): void {
   }

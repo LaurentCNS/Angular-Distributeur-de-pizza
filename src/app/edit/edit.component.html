@@ -1,0 +1,34 @@
+<app-header></app-header>
+<!--<div class="container mt-3 ">
+    <div class="form-container col-12 mt-5">
+        <h3>Gestion des pizzas disponible</h3>
+        <p>Espace pour consulter, modifier ou supprimer les pizzas de votre carte.</p>
+        <table class="table mt-3">
+            <thead>
+                <tr>
+                    <th scope="col">Nom</th>
+                    <th scope="col">Ingredients</th>
+                    <th scope="col">Informations santé</th>
+                    <th scope="col">Prix froids</th>
+                    <th scope="col">Prix chaud</th>
+                    <th scope="col">Coût en points</th>
+                    <th scope="col">Modifier</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of pizzas">
+                    <th scope="row">{{item.name}}</th>
+                    <td>menu</td>
+                    <td>{{item.information}}</td>
+                    <td>{{item.priceCold | number : '.2-2'}}€</td>
+                    <td>{{item.priceHot | number : '.2-2'}}€</td>
+                    <td>{{item.bonus}}P</td>
+                    <td>
+                        <fa-icon [routerLink]="['/detail', item.id]" [icon]="faPen"></fa-icon>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <button routerLink="/admin" class="btn btn-danger ">Retour</button>
+    </div>
+</div>-->
