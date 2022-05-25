@@ -12,6 +12,7 @@ import { faSnowflake, faFire, faCirclePlus, faCircleMinus, faCircleInfo } from '
 export class DetailsComponent implements OnInit {
 
   pizzas !: Pizza;
+   
   faCold = faSnowflake;
   faHot = faFire;
   faRemove = faCircleMinus;
@@ -25,7 +26,7 @@ export class DetailsComponent implements OnInit {
 
   ngOnInit(): void {
     let id = parseInt(<string>this.activatedRoute.snapshot.paramMap.get('id'));
-    this.pizzas = this.pizzaService.choiceById(id);            
+    this.pizzas = this.pizzaService.choiceById(id);                
   }
 
 }

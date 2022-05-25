@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-login',
@@ -12,6 +13,7 @@ export class LoginComponent implements OnInit {
   userPhone !: number; 
   userPassword = '';
   badLogin = false
+  faInfo = faCircleInfo;
 
   constructor(private router: Router,
               private toastr: ToastrService) { }

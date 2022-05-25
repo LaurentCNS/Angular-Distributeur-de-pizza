@@ -4,6 +4,7 @@ img{
 
 fa-icon{
     font-size: 25px;
+    cursor: pointer;
 }
 
 .buttonReturn{    
@@ -23,4 +24,13 @@ fa-icon{
 
  .info{
      font-size: 15px;
+ }
+
+ .namePizza{
+     font-weight: bold;
+     font-size: 15px;
+ }
+
+ .head{
+    font-size: 15px;
  }

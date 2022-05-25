@@ -1,35 +1,63 @@
-<!--<app-header></app-header>
+<app-header></app-header>
 <div class="container mt-5 ">
-    <div class="form-container col-12 mt-5">
-        <h2>Gestion des pizzas sauvegardées</h2>
-        <h3>Espace pour consulter, modifier ou supprimer les pizzas de votre carte.</h3>
-        <fa-icon class="info pe-2" [icon]="faInfo"></fa-icon>
-        <span>Mode démonstration: La gestion des photos est indisponible dans ce mode.</span>
-        <table class="table mt-5">
-            <thead>
-                <tr>
-                    <th scope="col">Photo</th>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Détails</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of pizzas">
-                    <td><img src="../../assets/pizzas/{{item.picture}}" alt=""></td>
-
-                    <td><strong>{{item.name}}</strong><br>
-                        Prix froid: {{item.priceCold| number : '.2-2'}}€<br>
-                        Prix chaud: {{item.priceHot| number : '.2-2'}}€<br>
-                        Coût points: {{item.bonus}}P
-                    </td>
-                    <td>
-                        <fa-icon [routerLink]="['/detail', item.id]" [icon]="faEye"></fa-icon>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <div class="d-flex align-items-center flex-column">
-            <button routerLink="/admin" class="btn btn-danger buttonReturn ">RETOUR</button>
-        </div>
+  <div class="form-container col-12 mt-5">
+    <h2>Gestion des pizzas sauvegardées</h2>
+    <h3>Espace pour consulter, modifier ou supprimer les pizzas de votre carte.</h3>
+    <fa-icon class="info pe-2" [icon]="faInfo"></fa-icon>
+    <span>Mode démonstration: La gestion des photos est indisponible dans ce mode.</span>
+    <table class="table mt-5">
+      <thead class="table table-light">
+        <tr class="head">
+          <th scope="col">Libelle</th>
+          <th scope="col">Valeur</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Nom</strong></td>
+          <td>{{pizza.name}}</td>
+        </tr>
+        <tr>
+          <td><strong>Image</strong></td>
+          <td>{{pizza.picture}}</td>
+        </tr>
+        <tr>
+          <td><strong>Information santé</strong></td>
+          <td>{{pizza.information}}</td>
+        </tr>
+        <tr>
+          <td><strong>Prix froid</strong></td>
+          <td>{{pizza.priceCold | number : '.2-2'}}€</td>
+        </tr>
+        <tr>
+          <td><strong>Prix chaud</strong></td>
+          <td>{{pizza.priceHot | number : '.2-2'}}€</td>
+        </tr>
+        <tr>
+          <td><strong>Coût points</strong></td>
+          <td>{{pizza.bonus}}P</td>
+        </tr>
+        <tr>
+          <td><strong>Ingrédients</strong></td>
+          <td>{{pizza.composants}}</td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="choiceIcon d-flex justify-content-center">
+      <div class=" mt-5 mb-3" *ngIf="deleteVal===false">
+      <fa-icon class="info me-5" [icon]="faPen"></fa-icon>
+      <fa-icon (click)="deleteValidation()" class="info" [icon]="faTrash"></fa-icon>
     </div>
-</div>-->
+      <div class="mx-auto mt-3 mb-3" *ngIf="deleteVal===true">
+        <p><strong>Etes vous sûr de vouloir supprimer cette pizza?</strong></p>
+        <div class="d-flex justify-content-center">
+        <button (click)="deleteOne()" class="btn btn-success me-5">OUI</button>
+        <button (click)="deleteValidation()" class="btn btn-danger btnNon">NON</button>
+      </div>
+      </div>
+    </div>
+    <div class="d-flex align-items-center flex-column">
+      <button routerLink="/list" class="btn btn-danger buttonReturn ">RETOUR</button>
+    </div>
+  </div>
+</div>

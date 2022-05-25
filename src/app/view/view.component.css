@@ -24,3 +24,12 @@ fa-icon{
  .info{
      font-size: 15px;
  }
+
+ .choiceIcon fa-icon{
+     font-size: 35px;
+     cursor: pointer;
+ }
+
+ .btnNon{
+     width: 150px;
+ }

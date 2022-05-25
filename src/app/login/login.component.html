@@ -1,42 +1,47 @@
 <app-header></app-header>
 <div class="login">
-<div class="container">
-  <div class="row">
-<div class="col-lg-12 col-md-12 col-sm-12 col-12 mb-3 d-flex justify-content-center">
-  <div class="card  " style="width: 45rem">
-    <div class="card-body">
+  <div class="container">
+    <div class="demo d-flex justify-content-center">
+      <fa-icon class="info pe-2" [icon]="faInfo"></fa-icon>
+      <span>ACCES DEMO ADMINISTRATEUR: "1234" et "admin"</span>
+    </div>
+    <div class="row">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-12 mb-3 d-flex justify-content-center">
+        <div class="card  " style="width: 45rem">
+          <div class="card-body">
 
-      <h1 class="strong card-title text-center"><strong>MON COMPTE</strong></h1>
-      <form #form="ngForm" (ngSubmit)="login()">
+            <h1 class="strong card-title text-center"><strong>MON COMPTE</strong></h1>
+            <form #form="ngForm" (ngSubmit)="login()">
 
-        <div class="mb-3 mt-3 px-3">
-          <label for="user" class="form-label"></label>
-          <input type="text" class="form-control" placeholder="NUMERO DE TELEPHONE" id="user" name="user"  maxlength="10" minlength="1"
-            #user="ngModel" required [(ngModel)]="userPhone">
+              <div class="mb-3 mt-3 px-3">
+                <label for="user" class="form-label"></label>
+                <input type="text" class="form-control" placeholder="NUMERO DE TELEPHONE" id="user" name="user"
+                  maxlength="10" minlength="1" #user="ngModel" required [(ngModel)]="userPhone">
+              </div>
+
+              <div class="mb-5 px-3">
+                <label for="password" class="form-label"></label>
+                <input type="password" class="form-control" placeholder="MOT DE PASSE" id="password" name="password"
+                  maxlength="30" minlength="1" #password="ngModel" required [(ngModel)]="userPassword">
+              </div>
+
+              <div class="px-3 mb-3 d-flex justify-content-between">
+                <button [disabled]="'button'"
+                  class="btn btn-warning ps-3 me-3 text-center button buttonCreate">CREER</button>
+                <button [disabled]="!form.valid" type="submit"
+                  class="btn btn-success ps-3 text-center button">CONNEXION</button>
+              </div>
+
+            </form>
+            <div id="emailHelp" class=" mt-3 mb-3 form-text text-center"><strong></strong></div>
+          </div>
         </div>
-
-        <div class="mb-5 px-3">
-          <label for="password" class="form-label"></label>
-          <input type="password" class="form-control" placeholder="MOT DE PASSE" id="password" name="password" maxlength="30" minlength="1"
-            #password="ngModel" required [(ngModel)]="userPassword">
-        </div>
-
-        <div class="px-3 mb-3 d-flex justify-content-between">
-          <button [disabled]="'button'" class="btn btn-warning ps-3 me-3 text-center button buttonCreate">CREER</button>
-          <button [disabled]="!form.valid" type="submit"
-            class="btn btn-success ps-3 text-center button">CONNEXION</button>
-        </div>
-
-      </form>
-      <div id="emailHelp" class=" mt-3 mb-3 form-text text-center"><strong>*** ACCES ADMINISTRATEUR = "1234" et "admin" ***</strong></div>
+      </div>
     </div>
   </div>
-</div>
-</div>
-</div>
-<div class="container mt-5 pb-5">
-  <div class="row d-flex justify-content-evenly">
-    <button [routerLink]="'/home'" type="submit" class="btn btn-secondary text-center buttonReturn">RETOUR</button>
+  <div class="container mt-5 pb-5">
+    <div class="row d-flex justify-content-evenly">
+      <button [routerLink]="'/home'" type="submit" class="btn btn-secondary text-center buttonReturn">RETOUR</button>
+    </div>
   </div>
-</div>
 </div>

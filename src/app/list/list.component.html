@@ -6,24 +6,24 @@
         <fa-icon class="info pe-2" [icon]="faInfo"></fa-icon>
         <span>Mode démonstration: Les données seront réinitialisées si rafraichissement de la page.</span>
         <table class="table mt-5">
-            <thead>
-                <tr>
-                    <th scope="col">Photo</th>
-                    <th scope="col">Nom</th>
+            <thead class="table table-light">
+                <tr class="head">
+                    <th scope="col">Photos</th>
+                    <th scope="col">Résumé</th>
                     <th scope="col">Détails</th>
                 </tr>
             </thead>
             <tbody>
                 <tr *ngFor="let item of pizzas">
                     <td><img src="../../assets/pizzas/{{item.picture}}" alt=""></td>
-                    
-                    <td><strong>{{item.name}}</strong><br>
-                    Prix froid: {{item.priceCold| number : '.2-2'}}€<br>
-                    Prix chaud: {{item.priceHot| number : '.2-2'}}€<br>
-                    Coût points: {{item.bonus}}P
-                </td>                   
+
+                    <td><div class="namePizza">{{item.name}}</div><br>
+                        Prix froid: {{item.priceCold| number : '.2-2'}}€<br>
+                        Prix chaud: {{item.priceHot| number : '.2-2'}}€<br>
+                        Coût points: {{item.bonus}}P
+                    </td>
                     <td>
-                        <fa-icon [routerLink]="['/detail', item.id]" [icon]="faEye"></fa-icon>
+                        <fa-icon [routerLink]="['/view', item.id]" [icon]="faEye"></fa-icon>
                     </td>
                 </tr>
             </tbody>
@@ -31,6 +31,5 @@
         <div class="d-flex align-items-center flex-column">
             <button routerLink="/admin" class="btn btn-danger buttonReturn ">RETOUR</button>
         </div>
-       
     </div>
 </div>

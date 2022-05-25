@@ -3,7 +3,7 @@
 <!--CARD PIZZA-->
 
 <div class="container d-flex justify-content-center details">
-    <div class="card mb-3" style="max-width: 1600px;">
+    <div class="card mb-3 test" style="max-width: 1600px;">
         <div class="row g-0">
             <div class="col-xl-6 col-lg-12 col-md-12">
                 <img src="../../assets/pizzas/{{pizzas.picture}}" class="card-img-top picture" alt="...">
@@ -12,39 +12,21 @@
                 <div class="card-body text-center">
                     <h1>{{pizzas.name}}</h1>
                     <h2>Ingrédients:</h2>
-                    <div class="divComposant">
-                        <div class="row">
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
-                                <p class="composant">{{pizzas.composant1}}</p>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
-                                <p class="composant">{{pizzas.composant2}}</p>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
-                                <p class="composant">{{pizzas.composant3}}</p>
+                    <div class="divComposant" *ngIf="pizzas.composants">
+                        <div class="row" *ngIf="(pizzas.composants.length <= 10)">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <p class="composant">{{pizzas.composants}}</p>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
-                                <p class="composant">{{pizzas.composant4}}</p>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
-                                <p class="composant">{{pizzas.composant5}}</p>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
-                                <p class="composant">{{pizzas.composant6}}</p>
+                        <div class="row" *ngIf="(pizzas.composants.length > 10)">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <p class="composant">Cette pizza est beaucoup trop gr(a)osse !</p>
                             </div>
                         </div>
-                        <div class="row">
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
-                                <p class="composant">{{pizzas.composant7}}</p>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
-                                <p class="composant">{{pizzas.composant8}}</p>
-                            </div>
-                            <div class="col-xl-4 col-lg-4 col-md-4 col-sm-4 col-12">
-                                <p class="composant">{{pizzas.composant9}}</p>
-                            </div>
+                    </div>
+                    <div class="row" *ngIf="!pizzas.composants">
+                        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                            <p class="composant">Désolé, aucun ingrédient à afficher pour cette pizza.</p>
                         </div>
                     </div>
                     <div class="row mb-2 divPrice">
@@ -78,16 +60,16 @@
 <!--CARD INFO-->
 
 <div class="container d-flex justify-content-center mb-5">
-<div class="card">
-    <div class="card-header">
-        <fa-icon class="faInfo mt-2" [icon]="faInfo"></fa-icon>
-    <span class="ms-2">Information santé :</span> 
+    <div class="card">
+        <div class="card-header">
+            <fa-icon class="faInfo mt-2" [icon]="faInfo"></fa-icon>
+            <span class="ms-2">Information santé :</span>
+        </div>
+        <div class="card-body">
+            <p *ngIf="!pizzas.information" class="card-text">Aucune information relative à cette pizza.</p>
+            <p *ngIf="pizzas.information" class="card-text">{{pizzas.information}}</p>
+        </div>
     </div>
-    <div class="card-body">
-      <p *ngIf="!pizzas.information" class="card-text">Aucune information relative à cette pizza.</p>
-      <p *ngIf="pizzas.information" class="card-text">{{pizzas.information}}</p>
-    </div>
-  </div>
 </div>
 
 
@@ -98,7 +80,7 @@
         <div class="row d-flex justify-content-center">
             <div class="col-lg-4 col-md-6 col-sm-5 col-5">
                 <fa-icon class="faColdButton" [icon]="faRemove"></fa-icon>
-            </div>           
+            </div>
             <div class="col-lg-4 col-md-6 col-sm-5 col-5">
                 <fa-icon class="faColdButton" [icon]="faAdd"></fa-icon>
             </div>
