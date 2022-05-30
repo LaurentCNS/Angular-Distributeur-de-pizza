@@ -1,34 +1,72 @@
 <app-header></app-header>
-<!--<div class="container mt-3 ">
-    <div class="form-container col-12 mt-5">
-        <h3>Gestion des pizzas disponible</h3>
-        <p>Espace pour consulter, modifier ou supprimer les pizzas de votre carte.</p>
-        <table class="table mt-3">
-            <thead>
-                <tr>
-                    <th scope="col">Nom</th>
-                    <th scope="col">Ingredients</th>
-                    <th scope="col">Informations santé</th>
-                    <th scope="col">Prix froids</th>
-                    <th scope="col">Prix chaud</th>
-                    <th scope="col">Coût en points</th>
-                    <th scope="col">Modifier</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr *ngFor="let item of pizzas">
-                    <th scope="row">{{item.name}}</th>
-                    <td>menu</td>
-                    <td>{{item.information}}</td>
-                    <td>{{item.priceCold | number : '.2-2'}}€</td>
-                    <td>{{item.priceHot | number : '.2-2'}}€</td>
-                    <td>{{item.bonus}}P</td>
-                    <td>
-                        <fa-icon [routerLink]="['/detail', item.id]" [icon]="faPen"></fa-icon>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
-        <button routerLink="/admin" class="btn btn-danger ">Retour</button>
+<div class="container mt-5 ">
+  <div class="form-container col-12 mt-5">
+    <h2>Gestion des pizzas sauvegardées</h2>
+    <h3>Vous êtes sur le point de modifier la pizza ci-dessous:</h3>
+    <fa-icon class="info pe-2" [icon]="faInfo"></fa-icon>
+    <span>Mode démonstration: La gestion des photos est indisponible dans ce mode.</span>
+  </div>
+  <div class="col-lg-12 mt-5">
+    <form #form="ngForm" (ngSubmit)="submitEdit()">
+      <div class="form-group">
+        <label for="nom"><strong>Nom</strong></label>
+        <input type="text" required class="form-control mb-3" id="nom" name="nom" #title="ngModel" maxlength="15"
+          [(ngModel)]="pizzaForm.name">
+      </div>
+      <div class="form-group">
+        <label for="photo"><strong>Photo</strong></label>
+        <input type="text" disabled class="form-control mb-3" id="photo" name="photo" #title="ngModel" maxlength="15"
+          [(ngModel)]="pizzaForm.picture">
+      </div>
+      <div class="form-group">
+        <label for="prixFroid"><strong>Prix froid en €</strong></label>
+        <input type="text" required class="form-control mb-3" id="prixFroid" name="prixFroid" #resume="ngModel" maxlength="5"
+          [(ngModel)]="pizzaForm.priceCold ">
+      </div>
+      <div class="form-group">
+        <label for="prixChaud"><strong>Prix chaud en €</strong></label>
+        <input type="text" required class="form-control mb-3" id="prixChaud" name="prixChaud" #resume="ngModel" maxlength="5"
+          [(ngModel)]="pizzaForm.priceHot">
+      </div>
+      <div class="form-group">
+        <label for="points"><strong>Coût en points</strong></label>
+        <input type="text" required class="form-control mb-3" id="points" name="points" #resume="ngModel" maxlength="2"
+          [(ngModel)]="pizzaForm.bonus">
+      </div>
+      <div *ngFor="let item of pizzaForm.composants; let index = index"   class="form-group">
+         
+        <label for="ingredient{{index}}"><strong>Ingrédient {{index +1}}</strong></label>
+        
+        <input type="text" class="form-control mb-3" id="ingredient{{index}}" name="ingredient{{index}}"
+            #resume="ngModel" maxlength="20" [(ngModel)]="pizzaForm.composants[index]">
+        
+
     </div>
-</div>-->
+    
+      <div class="form-group">
+        <label for="content"><strong>Information santé</strong></label>
+        <input type="text" required class="form-control mb-5" placeholder="Contenu de l'article" id="content" name="content"
+          #content="ngModel" maxlength="100" [(ngModel)]="pizzaForm.information">
+      </div>
+      <div class="bouton-form d-flex align-items-center flex-column mt-3">
+        <button class="btn btn-warning buttonEdit" [disabled]="!form.valid" type="submit">MODIFIER</button>
+      </div>
+    </form>
+  </div>
+  <div class="d-flex align-items-center flex-column">
+    <button [routerLink]="['/view',pizzaForm.id]" class="btn btn-danger buttonReturn ">RETOUR</button>
+  </div>
+</div>
+
+
+
+<!-- Code si l'on veut une boucle:
+<div *ngFor="let item of pizza.composants; let index = index" class="form-group">
+         
+               
+                <label for="ingredient{{index}}"><strong>Ingrédient {{index + 1}}</strong></label>
+                <input *ngIf="pizza.composants" type="text" class="form-control mb-3" id="ingredient{{index}}" name="ingredient{{index}}"
+                    #resume="ngModel" maxlength="20" [(ngModel)]="pizza.composants[index]">
+
+            </div>
+-->

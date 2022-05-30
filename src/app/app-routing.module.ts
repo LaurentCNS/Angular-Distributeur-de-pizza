@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { AdminComponent } from './admin/admin.component';
 import { CreatorComponent } from './creator/creator.component';
 import { DetailsComponent } from './details/details.component';
+import { EditComponent } from './edit/edit.component';
 import { HomeComponent } from './home/home.component';
 import { ListComponent } from './list/list.component';
 import { LoginComponent } from './login/login.component';
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'list', component: ListComponent },
   { path: 'creator', component: CreatorComponent },
   { path: 'view/:id', component: ViewComponent },
+  { path: 'edit/:id', component: EditComponent },
 ];
 
 @NgModule({

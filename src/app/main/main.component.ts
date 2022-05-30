@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Pizza } from '../class/pizzas';
 import { PizzasService } from '../pizzas.service';
-import { faCircleChevronLeft, faCircleChevronRight } from '@fortawesome/free-solid-svg-icons';
-import { isNgTemplate } from '@angular/compiler';
+
 
 
 @Component({
@@ -15,23 +14,13 @@ export class MainComponent implements OnInit {
 
 
   pizzas: Pizza[] = this.pizzaService.pizzaCreate;
-  faLeft = faCircleChevronLeft;
-  faRight = faCircleChevronRight;
-
- 
+  
 
   constructor(private pizzaService : PizzasService) { }
 
   ngOnInit(): void {
-  }
-
-  clickLeft(){
-
-  }
-
-  clickRight(){
+    
     
   }
-
 
 }

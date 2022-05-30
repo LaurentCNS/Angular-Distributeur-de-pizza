@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Pizza } from '../class/pizzas';
 import { PizzasService } from '../pizzas.service';
 import { faCircleInfo, faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-view',
@@ -16,13 +17,18 @@ export class ViewComponent implements OnInit {
   faPen = faPenToSquare;
   faInfo = faCircleInfo;
   faTrash = faTrash;
+  
 
   constructor(private pizzasService : PizzasService,
-              private activatedRoute : ActivatedRoute) { }
+              private activatedRoute : ActivatedRoute,
+              private router : Router,
+              private toastr : ToastrService) { }
 
   ngOnInit(): void{
     let id = parseInt(<string>this.activatedRoute.snapshot.paramMap.get('id'));
     this.pizza = this.pizzasService.choiceById(id);
+    console.log(this.pizza);
+    
   }
 
 
@@ -34,8 +40,11 @@ export class ViewComponent implements OnInit {
     }
   }
 
-  deleteOne(){
-    
+  deleteChoice(){
+    let id = parseInt(<string>this.activatedRoute.snapshot.paramMap.get('id'));
+    this.pizzasService.removeOne(id);
+    this.router.navigate(['/list']);
+    this.toastr.success('La pizza est supprimée !');    
   }
 
 }

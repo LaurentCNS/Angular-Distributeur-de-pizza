@@ -2,9 +2,9 @@
 
 <div class="container-fluid main">
   <div class="row">
-    <div *ngFor="let item of pizzas | slice:0:6; let i=index"
+    <div *ngFor="let item of pizzas "
       class="col-xxl-2 col-xl-4 col-lg-4 col-md-6 col-sm-6 col-12 mb-5 d-flex justify-content-center">
-      <div class="card" style="width: 15rem;">
+      <div class="card" style="width: 15rem">
         <img src="../../assets/pizzas/{{item.picture}}" class="card-img-top mb-3" alt="{{item.picture}}">
         <div class="card-body">
           <h2 class="card-title pb-3">{{item.name}}</h2>
@@ -26,18 +26,7 @@
     </div>
   </div>
 </div>
-<div class="container mb-5">
-  <div class="row">
-    <div class=" d-flex justify-content-evenly">
-      <div class="pe-5">
-        <fa-icon class="arrowLeftEnable" (click)="clickLeft()" [icon]="faLeft"></fa-icon>
-      </div>
-      <div class="ps-5">
-        <fa-icon (click)="clickRight()" [icon]="faLeft" [icon]="faRight"></fa-icon>
-      </div>
-    </div>
-  </div>
-</div>
+
 
 <!--FOOTER-->
 

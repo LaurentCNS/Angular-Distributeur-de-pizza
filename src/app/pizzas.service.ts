@@ -12,8 +12,7 @@ export class PizzasService {
     new Pizza (1,'Leonardo','img0.jpg',`Risque d'allérgènes: Gluten, oeuf / Nutri-score C`,8.50,8.90,10,
     ['sauce tomate', 'mozzarella', 'ingredient test','ingredient test','ingredient test','ingredient test','ingredient test',
     'ingredient test','ingredient test','ingredient test',]),
-    
-    new Pizza (2,'Michelangelo','img1.jpg',``,8.90,9.30,10,),
+    new Pizza (2,'Michelangelo','img1.jpg',``,8.90,9.30,10,['salut','cousin']),
     new Pizza (3,'Donatello','img2.jpg',``,9.50,9.90,10,),
     new Pizza (4,'Raphael','img3.jpg',``,9.70,10.10,12,),
     new Pizza (5,'Shredder','img4.jpg',``,9.80,10.20,12,),
@@ -34,10 +33,11 @@ export class PizzasService {
     return elemToReturn
   }
 
-  deleteOne(){
-    
+  removeOne(id:number):void{
+    this.pizzaCreate = this.pizzaCreate.filter(pizza => pizza.id != id);
   }
 
+  
 
 
 

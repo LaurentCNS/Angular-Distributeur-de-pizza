@@ -6,11 +6,11 @@ export class Pizza {
     priceCold ?: number;
     priceHot ?: number;
     bonus ?: number;
-    composants ?: string[];
+    composants : string[] = [];
     
 
     constructor (id ?: number, name ?: string, picture ?: string , information ?: string,
-         priceCold ?: number, priceHot ?: number, bonus ?: number, composants ?: string[]){
+         priceCold ?: number, priceHot ?: number, bonus ?: number, composants : string[] = []){
         this.id = id;
         this.name = name;
         this.picture = picture;

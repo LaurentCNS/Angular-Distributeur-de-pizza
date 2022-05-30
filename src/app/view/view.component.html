@@ -2,9 +2,7 @@
 <div class="container mt-5 ">
   <div class="form-container col-12 mt-5">
     <h2>Gestion des pizzas sauvegardées</h2>
-    <h3>Espace pour consulter, modifier ou supprimer les pizzas de votre carte.</h3>
-    <fa-icon class="info pe-2" [icon]="faInfo"></fa-icon>
-    <span>Mode démonstration: La gestion des photos est indisponible dans ce mode.</span>
+    <h3>Choix de modification ou suppression de la pizza en bas de page.</h3>
     <table class="table mt-5">
       <thead class="table table-light">
         <tr class="head">
@@ -22,10 +20,6 @@
           <td>{{pizza.picture}}</td>
         </tr>
         <tr>
-          <td><strong>Information santé</strong></td>
-          <td>{{pizza.information}}</td>
-        </tr>
-        <tr>
           <td><strong>Prix froid</strong></td>
           <td>{{pizza.priceCold | number : '.2-2'}}€</td>
         </tr>
@@ -41,17 +35,21 @@
           <td><strong>Ingrédients</strong></td>
           <td>{{pizza.composants}}</td>
         </tr>
+        <tr>
+          <td><strong>Information santé</strong></td>
+          <td>{{pizza.information}}</td>
+        </tr>
       </tbody>
     </table>
     <div class="choiceIcon d-flex justify-content-center">
       <div class=" mt-5 mb-3" *ngIf="deleteVal===false">
-      <fa-icon class="info me-5" [icon]="faPen"></fa-icon>
+      <fa-icon [routerLink]="['/edit',pizza.id]" class="info me-5" [icon]="faPen"></fa-icon>
       <fa-icon (click)="deleteValidation()" class="info" [icon]="faTrash"></fa-icon>
     </div>
       <div class="mx-auto mt-3 mb-3" *ngIf="deleteVal===true">
         <p><strong>Etes vous sûr de vouloir supprimer cette pizza?</strong></p>
         <div class="d-flex justify-content-center">
-        <button (click)="deleteOne()" class="btn btn-success me-5">OUI</button>
+        <button (click)="deleteChoice()" class="btn btn-success me-5">OUI</button>
         <button (click)="deleteValidation()" class="btn btn-danger btnNon">NON</button>
       </div>
       </div>
