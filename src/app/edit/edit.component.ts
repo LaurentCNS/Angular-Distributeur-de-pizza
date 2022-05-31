@@ -33,7 +33,11 @@ export class EditComponent implements OnInit {
   submitEdit(){
     this.router.navigate(['/view', this.pizzaForm.id]);
     if(this.pizzaForm === this.pizzaForm){
-    this.toastr.success('La pizza à été modifiée !');}
+    this.toastr.success('La pizza a été modifiée !');}
+  }
+
+  trackByIdx(index: number, obj: any): any {
+    return index;
   }
 
 }

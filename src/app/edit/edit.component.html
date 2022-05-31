@@ -33,12 +33,14 @@
         <input type="text" required class="form-control mb-3" id="points" name="points" #resume="ngModel" maxlength="2"
           [(ngModel)]="pizzaForm.bonus">
       </div>
-      <div *ngFor="let item of pizzaForm.composants; let index = index"   class="form-group">
-         
-        <label for="ingredient{{index}}"><strong>Ingrédient {{index +1}}</strong></label>
+
+
+      <div *ngFor="let item of pizzaForm.composants; let i = index; ;trackBy:trackByIdx"   class="form-group">
+         {{i}}
+        <label for="ingredient{{i}}"><strong>Ingrédient {{i +1}}</strong></label>
         
-        <input type="text" class="form-control mb-3" id="ingredient{{index}}" name="ingredient{{index}}"
-            #resume="ngModel" maxlength="20" [(ngModel)]="pizzaForm.composants[index]">
+        <input type="text" class="form-control mb-3" id="ingredient{{i}}" name="ingredient{{i}}"
+            #resume{{i}}="ngModel" maxlength="20" [(ngModel)]="pizzaForm.composants[i]">
         
 
     </div>

@@ -17,7 +17,7 @@ export class PizzaChoiceService {
     
     if(pizzaAdded.name !== pizzaChoice.name){
     this.pizzaOrder.push(pizzaAdded)
-    console.log(this.pizzaOrder);
+    console.log(pizzaAdded.name);
     console.log(pizzaChoice.name);
     
   }
