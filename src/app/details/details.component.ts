@@ -21,6 +21,7 @@ export class DetailsComponent implements OnInit {
   faRemove = faCircleMinus;
   faAdd = faCirclePlus;
   faInfo = faCircleInfo
+ 
 
   constructor(private pizzaService : PizzasService,
               private pizzaChoiceService : PizzaChoiceService,
@@ -39,8 +40,18 @@ export class DetailsComponent implements OnInit {
     this.pizzaAdded.option = "Chaud";
     this.pizzaAdded.price = this.pizzas.priceHot;
     this.pizzaAdded.quantity = 1;
-    this.pizzaChoiceService.addPizzaService(this.pizzaAdded);
+    this.pizzaChoiceService.addOrRemovePizzaService(this.pizzaAdded);
     // console.log(this.basketToPush); 
   }
+
+  removePizzaHot(){
+    this.pizzaAdded.name  = this.pizzas.name;
+    this.pizzaAdded.option = "Chaud";
+    this.pizzaAdded.price = this.pizzas.priceHot;
+    this.pizzaAdded.quantity = 0;
+    this.pizzaChoiceService.addOrRemovePizzaService(this.pizzaAdded);
+    // console.log(this.basketToPush); 
+  }
+  
 
 }
