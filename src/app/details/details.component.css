@@ -99,8 +99,15 @@ h2{
 }
 
 .faHotButton{
+    cursor: pointer;
     font-size: 80px;
     color: red;
+}
+
+.faHotButtonDisabled{
+    font-size: 80px;
+    font-size: 80px;
+    color: rgb(168, 168, 168);
 }
 
 @media (max-width: 576px) { 

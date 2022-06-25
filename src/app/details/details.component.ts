@@ -21,6 +21,8 @@ export class DetailsComponent implements OnInit {
   faRemove = faCircleMinus;
   faAdd = faCirclePlus;
   faInfo = faCircleInfo
+  count : number = 0;
+  priceTotal = this.pizzaChoiceService.priceTotal;
  
 
   constructor(private pizzaService : PizzasService,
@@ -30,8 +32,15 @@ export class DetailsComponent implements OnInit {
     ) { }
 
   ngOnInit(): void {
+    // Récupération de l'id de la pizza et récupération de la pizza correspondante
     let id = parseInt(<string>this.activatedRoute.snapshot.paramMap.get('id'));
-    this.pizzas = this.pizzaService.choiceById(id);                
+    this.pizzas = this.pizzaService.choiceById(id);
+    // Recupration du nombre de pizzas dans le panier qui match avec la pizza selectionnée
+    for (let i = 0; i < this.pizzaChoiceService.command.length; i++) {
+      if(this.pizzaChoiceService.command[i].name === this.pizzas.name){
+        this.count = this.pizzaChoiceService.command[i].quantity;
+      }
+    }                
   }
 
 
@@ -39,18 +48,24 @@ export class DetailsComponent implements OnInit {
     this.pizzaAdded.name  = this.pizzas.name;
     this.pizzaAdded.option = "Chaud";
     this.pizzaAdded.price = this.pizzas.priceHot;
-    this.pizzaAdded.quantity = 1;
+    this.pizzaAdded.quantity = 1;  // indication pour le service si add ou remove
+    this.count ++; // incrementation du compteur
     this.pizzaChoiceService.addOrRemovePizzaService(this.pizzaAdded);
-    // console.log(this.basketToPush); 
+    // rafraichir le prix total
+    this.priceTotal = this.pizzaChoiceService.priceTotal;
   }
 
   removePizzaHot(){
+    // SI il y a déja des pizzas identique dans le panier
+    if(this.count > 0){
     this.pizzaAdded.name  = this.pizzas.name;
     this.pizzaAdded.option = "Chaud";
     this.pizzaAdded.price = this.pizzas.priceHot;
-    this.pizzaAdded.quantity = 0;
+    this.pizzaAdded.quantity = 0;  // indication pour le service si add ou remove
+    this.count --; // decrementation du compteur
     this.pizzaChoiceService.addOrRemovePizzaService(this.pizzaAdded);
-    // console.log(this.basketToPush); 
+    // rafraichir le prix total
+    this.priceTotal = this.pizzaChoiceService.priceTotal;} 
   }
   
 

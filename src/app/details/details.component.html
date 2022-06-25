@@ -88,16 +88,21 @@
     </div>
     <div class="col-xl-3 col-lg-4 col-md-3 col-sm-6 col-6">
         <div class="row d-flex justify-content-center">
-            <div class="col-lg-4 col-md-6 col-sm-5 col-5">
-                <fa-icon (click)="removePizzaHot()" class="faHotButton" [icon]="faRemove"></fa-icon>
+            <div class="col-lg-4 col-md-5 col-sm-5 col-5">
+                <fa-icon (click)="removePizzaHot()" *ngIf="this.count == 0" class="faHotButtonDisabled" [icon]="faRemove"></fa-icon>
+                <fa-icon (click)="removePizzaHot()" *ngIf="this.count>=1" class="faHotButton" [icon]="faRemove"></fa-icon>
             </div>
-            <div class="col-lg-4 col-md-6 col-sm-5 col-5">
+            <div class="col-lg-1 col-md-2 col-sm-5 col-5">
+            <p>{{count}}</p>
+        </div>
+            <div class="col-lg-4 col-md-5 col-sm-5 col-5">
                 <fa-icon (click)="addPizzaHot()" class="faHotButton" [icon]="faAdd"></fa-icon>
             </div>
         </div>
     </div>
 </div>
 
+<p>{{priceTotal | number : '.2-2'}}€</p>
 
 <!--FOOTER-->
 
