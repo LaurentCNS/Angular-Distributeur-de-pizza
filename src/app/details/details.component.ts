@@ -21,7 +21,8 @@ export class DetailsComponent implements OnInit {
   faRemove = faCircleMinus;
   faAdd = faCirclePlus;
   faInfo = faCircleInfo
-  count : number = 0;
+  countHot : number = 0;
+  countCold : number = 0;
   priceTotal = this.pizzaChoiceService.priceTotal;
  
 
@@ -35,21 +36,40 @@ export class DetailsComponent implements OnInit {
     // Récupération de l'id de la pizza et récupération de la pizza correspondante
     let id = parseInt(<string>this.activatedRoute.snapshot.paramMap.get('id'));
     this.pizzas = this.pizzaService.choiceById(id);
-    // Recupration du nombre de pizzas dans le panier qui match avec la pizza selectionnée
+    // Recupration du nombre de pizzas chaudes dans le panier qui match avec la pizza selectionnée
     for (let i = 0; i < this.pizzaChoiceService.command.length; i++) {
-      if(this.pizzaChoiceService.command[i].name === this.pizzas.name){
-        this.count = this.pizzaChoiceService.command[i].quantity;
+      if(this.pizzaChoiceService.command[i].name === this.pizzas.name && this.pizzaChoiceService.command[i].option === "Chaud"){
+        this.countHot = this.pizzaChoiceService.command[i].quantity;
       }
-    }                
+    }
+    // Recupration du nombre de pizzas froides dans le panier qui match avec la pizza selectionnée
+    for (let i = 0; i < this.pizzaChoiceService.command.length; i++) {
+      if(this.pizzaChoiceService.command[i].name === this.pizzas.name && this.pizzaChoiceService.command[i].option === "Froid"){
+        this.countCold = this.pizzaChoiceService.command[i].quantity;
+      }
+    }                      
   }
 
 
-  addPizzaHot(){
+  // ----------METHODES  D'ASSIGNATION DE VALEURS-------------
+  assigValueHot(){
     this.pizzaAdded.name  = this.pizzas.name;
-    this.pizzaAdded.option = "Chaud";
     this.pizzaAdded.price = this.pizzas.priceHot;
-    this.pizzaAdded.quantity = 1;  // indication pour le service si add ou remove
-    this.count ++; // incrementation du compteur
+    this.pizzaAdded.option = "Chaud";  // Assignation de l'option pizza chaude
+  }
+
+  assignValueCold(){
+    this.pizzaAdded.name  = this.pizzas.name;
+    this.pizzaAdded.price = this.pizzas.priceCold;
+    this.pizzaAdded.option = "Froid"; // Assignation de l'option pizza froide
+  }
+
+
+  // -------------------METHODES AU CLIQUE---------------------
+  addPizzaHot(){
+    this.assigValueHot();
+    this.pizzaAdded.quantity = 1;  // indication add pour le service
+    this.countHot ++; // incrementation du compteur
     this.pizzaChoiceService.addOrRemovePizzaService(this.pizzaAdded);
     // rafraichir le prix total
     this.priceTotal = this.pizzaChoiceService.priceTotal;
@@ -57,16 +77,35 @@ export class DetailsComponent implements OnInit {
 
   removePizzaHot(){
     // SI il y a déja des pizzas identique dans le panier
-    if(this.count > 0){
-    this.pizzaAdded.name  = this.pizzas.name;
-    this.pizzaAdded.option = "Chaud";
-    this.pizzaAdded.price = this.pizzas.priceHot;
-    this.pizzaAdded.quantity = 0;  // indication pour le service si add ou remove
-    this.count --; // decrementation du compteur
+    if(this.countHot > 0){
+    this.assigValueHot();
+    this.pizzaAdded.quantity = 0;  // indication remove pour le service
+    this.countHot --; // decrementation du compteur
+    this.pizzaChoiceService.addOrRemovePizzaService(this.pizzaAdded);
+    // rafraichir le prix total
+    this.priceTotal = this.pizzaChoiceService.priceTotal;} 
+  }
+
+  addPizzaCold(){
+    this.assignValueCold();
+    this.pizzaAdded.quantity = 1;  // indication add pour le service
+    this.countCold ++; // incrementation du compteur
+    this.pizzaChoiceService.addOrRemovePizzaService(this.pizzaAdded);
+    // rafraichir le prix total
+    this.priceTotal = this.pizzaChoiceService.priceTotal;
+  }
+
+  removePizzaCold(){
+    // SI il y a déja des pizzas identique dans le panier
+    if(this.countCold > 0){
+    this.assignValueCold();
+    this.pizzaAdded.quantity = 0;  // indication remove pour le service
+    this.countCold --; // decrementation du compteur
     this.pizzaChoiceService.addOrRemovePizzaService(this.pizzaAdded);
     // rafraichir le prix total
     this.priceTotal = this.pizzaChoiceService.priceTotal;} 
   }
   
+
 
 }

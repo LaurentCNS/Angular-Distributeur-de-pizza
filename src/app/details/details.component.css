@@ -98,6 +98,11 @@ h2{
     color: rgb(48, 95, 248);
 }
 
+.faColdButtonDisabled{
+    font-size:80px;
+    color: rgb(168, 168, 168);
+}
+
 .faHotButton{
     cursor: pointer;
     font-size: 80px;
@@ -105,7 +110,6 @@ h2{
 }
 
 .faHotButtonDisabled{
-    font-size: 80px;
     font-size: 80px;
     color: rgb(168, 168, 168);
 }
