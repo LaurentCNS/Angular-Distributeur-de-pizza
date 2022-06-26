@@ -40,13 +40,13 @@ export class DetailsComponent implements OnInit {
     this.pizzas = this.pizzaService.choiceById(id);
     // Recupration du nombre de pizzas chaudes dans le panier qui match avec la pizza selectionnée
     for (let i = 0; i < this.pizzaChoiceService.command.length; i++) {
-      if(this.pizzaChoiceService.command[i].name === this.pizzas.name && this.pizzaChoiceService.command[i].option === "Chaud"){
+      if(this.pizzaChoiceService.command[i].name === this.pizzas.name && this.pizzaChoiceService.command[i].option === "Chaude"){
         this.countHot = this.pizzaChoiceService.command[i].quantity;
       }
     }
     // Recupration du nombre de pizzas froides dans le panier qui match avec la pizza selectionnée
     for (let i = 0; i < this.pizzaChoiceService.command.length; i++) {
-      if(this.pizzaChoiceService.command[i].name === this.pizzas.name && this.pizzaChoiceService.command[i].option === "Froid"){
+      if(this.pizzaChoiceService.command[i].name === this.pizzas.name && this.pizzaChoiceService.command[i].option === "Froide"){
         this.countCold = this.pizzaChoiceService.command[i].quantity;
       }
     }                      
@@ -56,20 +56,24 @@ export class DetailsComponent implements OnInit {
   // ----------METHODES  D'ASSIGNATION DE VALEURS-------------
   assigValueHot(){
     this.pizzaAdded.name  = this.pizzas.name;
+    this.pizzaAdded.picture = this.pizzas.picture;
     this.pizzaAdded.price = this.pizzas.priceHot;
+    this.pizzaAdded.id = Math.floor(Math.random() * (9999999 - 1000000 + 1)) + 1000000;
     this.pizzaAdded.option = "Chaude";  // Assignation de l'option pizza chaude
   }
 
   assignValueCold(){
     this.pizzaAdded.name  = this.pizzas.name;
+    this.pizzaAdded.picture = this.pizzas.picture;
     this.pizzaAdded.price = this.pizzas.priceCold;
+    this.pizzaAdded.id = Math.floor(Math.random() * (9999999 - 1000000 + 1)) + 1000000;
     this.pizzaAdded.option = "Froide"; // Assignation de l'option pizza froide
   }
 
 
   // -------------------METHODES AU CLIQUE---------------------
   addPizzaHot(){
-    // SI il y a déja des pizzas identiques dans le panier
+    // Si le nombre de pizzas est inférieur à 99
     if(this.countHot < 99){
     this.assigValueHot();
     this.pizzaAdded.quantity = 1;  // indication add pour le service
@@ -81,7 +85,7 @@ export class DetailsComponent implements OnInit {
   }
 
   removePizzaHot(){
-    // SI il y a déja des pizzas identiques dans le panier
+    // SI le nombre de pizzas est supérieur à 0
     if(this.countHot > 0){
     this.assigValueHot();
     this.pizzaAdded.quantity = 0;  // indication remove pour le service
@@ -92,6 +96,7 @@ export class DetailsComponent implements OnInit {
   }
 
   addPizzaCold(){
+    // Si le nombre de pizzas est inférieur à 99
     if(this.countCold < 99){
     this.assignValueCold();
     this.pizzaAdded.quantity = 1;  // indication add pour le service
@@ -103,7 +108,7 @@ export class DetailsComponent implements OnInit {
   }
 
   removePizzaCold(){
-    // SI il y a déja des pizzas identiques dans le panier
+    // SI le nombre de pizzas est supérieur à 0
     if(this.countCold > 0){
     this.assignValueCold();
     this.pizzaAdded.quantity = 0;  // indication remove pour le service

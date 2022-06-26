@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { ListComponent } from './list/list.component';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
+import { PurchaseComponent } from './purchase/purchase.component';
 import { StartComponent } from './start/start.component';
 import { ViewComponent } from './view/view.component';
 
@@ -22,6 +23,7 @@ const routes: Routes = [
   { path: 'creator', component: CreatorComponent },
   { path: 'view/:id', component: ViewComponent },
   { path: 'edit/:id', component: EditComponent },
+  { path: 'purchase', component: PurchaseComponent },
 ];
 
 @NgModule({

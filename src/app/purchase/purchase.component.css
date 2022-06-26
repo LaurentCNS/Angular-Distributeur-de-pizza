@@ -1,0 +1,11 @@
+.purchase{
+    font-size: 20px;
+    color: red;
+    margin-top: 7px;
+}
+
+.trash{
+    cursor: pointer;
+    font-size: 30px;
+    color: red;
+}

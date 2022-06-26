@@ -19,6 +19,7 @@ import { CreatorComponent } from './creator/creator.component';
 import { ListComponent } from './list/list.component';
 import { EditComponent } from './edit/edit.component';
 import { ViewComponent } from './view/view.component';
+import { PurchaseComponent } from './purchase/purchase.component';
 
 
 
@@ -38,6 +39,7 @@ import { ViewComponent } from './view/view.component';
     ListComponent,
     EditComponent,
     ViewComponent,
+    PurchaseComponent,
    
   ],
   imports: [
