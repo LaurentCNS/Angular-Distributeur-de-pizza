@@ -5,6 +5,7 @@ import { PizzasService } from '../pizzas.service';
 import { faSnowflake, faFire, faCirclePlus, faCircleMinus, faCircleInfo } from '@fortawesome/free-solid-svg-icons';
 import { PizzaChoiceService } from '../pizzaChoice.service';
 import { pizzaChoice } from '../class/pizzaChoice';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-details',
@@ -28,7 +29,8 @@ export class DetailsComponent implements OnInit {
 
   constructor(private pizzaService : PizzasService,
               private pizzaChoiceService : PizzaChoiceService,
-              private activatedRoute : ActivatedRoute
+              private activatedRoute : ActivatedRoute,
+              private toastr: ToastrService,
     
     ) { }
 
@@ -55,28 +57,31 @@ export class DetailsComponent implements OnInit {
   assigValueHot(){
     this.pizzaAdded.name  = this.pizzas.name;
     this.pizzaAdded.price = this.pizzas.priceHot;
-    this.pizzaAdded.option = "Chaud";  // Assignation de l'option pizza chaude
+    this.pizzaAdded.option = "Chaude";  // Assignation de l'option pizza chaude
   }
 
   assignValueCold(){
     this.pizzaAdded.name  = this.pizzas.name;
     this.pizzaAdded.price = this.pizzas.priceCold;
-    this.pizzaAdded.option = "Froid"; // Assignation de l'option pizza froide
+    this.pizzaAdded.option = "Froide"; // Assignation de l'option pizza froide
   }
 
 
   // -------------------METHODES AU CLIQUE---------------------
   addPizzaHot(){
+    // SI il y a déja des pizzas identiques dans le panier
+    if(this.countHot < 99){
     this.assigValueHot();
     this.pizzaAdded.quantity = 1;  // indication add pour le service
     this.countHot ++; // incrementation du compteur
     this.pizzaChoiceService.addOrRemovePizzaService(this.pizzaAdded);
     // rafraichir le prix total
     this.priceTotal = this.pizzaChoiceService.priceTotal;
+    }
   }
 
   removePizzaHot(){
-    // SI il y a déja des pizzas identique dans le panier
+    // SI il y a déja des pizzas identiques dans le panier
     if(this.countHot > 0){
     this.assigValueHot();
     this.pizzaAdded.quantity = 0;  // indication remove pour le service
@@ -87,16 +92,18 @@ export class DetailsComponent implements OnInit {
   }
 
   addPizzaCold(){
+    if(this.countCold < 99){
     this.assignValueCold();
     this.pizzaAdded.quantity = 1;  // indication add pour le service
     this.countCold ++; // incrementation du compteur
     this.pizzaChoiceService.addOrRemovePizzaService(this.pizzaAdded);
     // rafraichir le prix total
     this.priceTotal = this.pizzaChoiceService.priceTotal;
+    }
   }
 
   removePizzaCold(){
-    // SI il y a déja des pizzas identique dans le panier
+    // SI il y a déja des pizzas identiques dans le panier
     if(this.countCold > 0){
     this.assignValueCold();
     this.pizzaAdded.quantity = 0;  // indication remove pour le service

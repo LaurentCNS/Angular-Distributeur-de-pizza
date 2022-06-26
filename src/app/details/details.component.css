@@ -117,11 +117,19 @@ h2{
 @media (max-width: 576px) { 
 
     .faColdButton{
-        font-size:60px;
+        font-size:50px;
     }
 
     .faHotButton{
-        font-size:60px;
+        font-size:50px;
+    }
+
+    .faColdButtonDisabled{
+        font-size:50px;
+    }
+
+    .faHotButtonDisabled{
+        font-size:50px;
     }
 
 }
@@ -143,4 +151,60 @@ h2{
 
 .test{
     width: 900px;
+}
+
+
+.counterCold{
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 28px;
+    color: rgb(48, 95, 248);
+}
+
+.counterHot{
+    font-size: 40px;
+    font-weight: bold;
+    margin-top: 28px;
+    color: red;
+}
+
+@media (max-width: 576px) {
+
+    .counterCold{
+        font-size: 30px;
+        font-weight: bold;
+        margin-top: 15px;
+        color: rgb(48, 95, 248);
+    }
+    
+    .counterHot{
+        font-size: 30px;
+        font-weight: bold;
+        margin-top: 15px;
+        color: red;
+    }
+
+}
+
+.total{
+    font-size:20px;
+    margin-top: 16px;
+    color: red
+}
+
+.price{
+    font-size:20px;
+    font-weight: bold;
+    color: red
+}
+
+@media (max-width: 576px) {
+    .total{
+        margin-top: 25px;
+    }
+    .price{
+        font-size:17px;
+        font-weight: bold;
+        color: red
+    }
 }
