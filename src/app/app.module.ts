@@ -20,6 +20,7 @@ import { ListComponent } from './list/list.component';
 import { EditComponent } from './edit/edit.component';
 import { ViewComponent } from './view/view.component';
 import { PurchaseComponent } from './purchase/purchase.component';
+import { OrderComponent } from './order/order.component';
 
 
 
@@ -40,6 +41,7 @@ import { PurchaseComponent } from './purchase/purchase.component';
     EditComponent,
     ViewComponent,
     PurchaseComponent,
+    OrderComponent,
    
   ],
   imports: [
