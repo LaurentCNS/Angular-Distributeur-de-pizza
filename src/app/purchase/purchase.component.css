@@ -1,11 +1,171 @@
-.purchase{
-    font-size: 20px;
-    color: red;
-    margin-top: 7px;
+.empty{
+    font-size: 30px;
 }
 
-.trash{
+.purchaseHot{
+    font-size: 20px;
+    color: red;
+    margin-top: 5px;
+}
+
+.trashHot{
     cursor: pointer;
     font-size: 30px;
     color: red;
+}
+
+.purchaseCold{
+    font-size: 20px;
+    color: rgb(48, 95, 248);
+    margin-top: 5px;
+}
+
+.trashCold{
+    cursor: pointer;
+    font-size: 30px;
+    color: rgb(48, 95, 248);
+}
+
+.price{
+    font-size: 27px;
+    font-weight: bold;
+    color: red;
+    margin-top: 5px;
+}
+
+.total{
+    font-size: 30px;
+    color: red;
+    margin-top: 5px;
+}
+@media (max-width: 570px) { 
+
+    .purchaseHot{
+        font-size: 15px;
+        color: red;
+        margin-top: 5px;
+    }
+    
+    .trashHot{
+        cursor: pointer;
+        font-size: 20px;
+        color: red;
+    }
+    
+    .purchaseCold{
+        font-size: 15px;
+        color: rgb(48, 95, 248);
+        margin-top: 5px;
+    }
+    
+    .trashCold{
+        cursor: pointer;
+        font-size: 20px;
+        color: rgb(48, 95, 248);
+    }
+
+    
+}
+/*FOOTER*/
+
+.buttonRetour{
+    width: 272px;
+    height: 80px;    
+}
+
+.buttonPanier{
+    width: 272px;
+    height: 80px;    
+}
+
+@media (max-width: 570px) { 
+
+    .buttonPanier{
+        width: 150px;   
+    }
+
+    .buttonRetour{
+        width: 150px;
+        height: 80px;    
+    }
+}
+
+.trashBasket{
+    cursor: pointer;
+    font-size: 20px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    background-color: #DC3545;
+    color: white;
+}
+
+.trashBasket:hover{
+    background-color: #ff0019;
+    color: white;
+}
+
+@media (max-width: 767px) { 
+
+    .textMobile{
+        text-align: center;   
+    }
+
+}
+
+.marginEmpty{
+    margin-top: 125px;
+    margin-bottom: 100px;
+}
+
+@media (max-width: 1399px) { 
+
+    .marginEmpty{
+        margin-top: 135px;
+        margin-bottom: 110px;
+    }
+
+}
+
+@media (max-width: 1199px) { 
+
+    .marginEmpty{
+        margin-top: 145px;
+        margin-bottom: 120px;
+    }
+}
+
+@media (max-width: 499px) { 
+
+    .marginEmpty{
+        margin-top: 100px;
+        margin-bottom: 70px;
+    }
+}
+
+.marginBottomCard{
+    margin-bottom: 100px;
+}
+
+@media (max-width: 1399px) { 
+
+    .marginBottomCard{
+        margin-bottom: 110px;
+    }
+
+}
+
+@media (max-width: 1199px) { 
+
+    .marginBottomCard{
+        margin-bottom: 120px;
+    }
+}
+
+@media (max-width: 499px) { 
+
+    .marginBottomCard{
+        margin-bottom: 0px;
+    }
 }

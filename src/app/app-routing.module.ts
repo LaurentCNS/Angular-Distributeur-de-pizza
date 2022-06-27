@@ -24,6 +24,7 @@ const routes: Routes = [
   { path: 'view/:id', component: ViewComponent },
   { path: 'edit/:id', component: EditComponent },
   { path: 'purchase', component: PurchaseComponent },
+  { path: 'purchase/:id', component: PurchaseComponent },
 ];
 
 @NgModule({

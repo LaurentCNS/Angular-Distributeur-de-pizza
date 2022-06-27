@@ -1,34 +1,56 @@
 <app-header></app-header>
 
 <div class="container">
-  <div class="mt-5">
+
+
+  <div *ngIf="(pizzaPurchase.length < 1)" class="marginEmpty">
+    <div class="col-lg-12">
+      <div class="d-flex justify-content-center">
+        <div class="card mb-3" style="max-width: 840px;">
+          <div class="row g-0">
+            <div class="col-md-12">
+              <h1 class="textMobile empty m-5">Aucune pizza dans le panier</h1>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="mt-5 marginBottomCard">
     <div *ngFor="let item of pizzaPurchase" class="mt-2">
       <div class="col-lg-12">
         <div class="d-flex justify-content-center">
           <div class="card mb-3" style="max-width: 840px;">
             <div class="row g-0">
-              <div class="col-md-4">
+              <div class="col-lg-4 col-md-4 col-12">
                 <img src="../../assets/pizzas/{{item.picture}}" class="img-fluid rounded-start" alt="...">
               </div>
               <div class="col-md-8">
-                <div class="card-body">
+                <div class="textMobile card-body">
                   <h1 class="card-title mt-4">{{item.name}}</h1>
                   <div class="row d-flex">
-                    <div class="col-lg-3">
-                      <p class="purchase">{{item.option}}</p>
+                    <div class="col-lg-3 col-md-3 col-3">
+                      <p *ngIf="item.option === 'Chaude'" class="purchaseHot">{{item.option}}</p>
+                      <p *ngIf="item.option === 'Froide'" class="purchaseCold">{{item.option}}</p>
                     </div>
-                    <div class="col-lg-3">
-                    <p class="purchase" >{{item.priceTotal| number : '.2-2'}}€</p>
-                </div>
-                <div class="col-lg-3">
-                    <p class="purchase">{{item.quantity}}x</p>
-                </div>
-                <div class="col-lg-3">
-                    <fa-icon class="trash"  [icon]="faTrashCan"></fa-icon>
+                    <div class="col-lg-3 col-md-3 col-md-3 col-3">
+                      <p *ngIf="item.option === 'Chaude'" class="purchaseHot">{{item.priceTotal| number : '.2-2'}}€</p>
+                      <p *ngIf="item.option === 'Froide'" class="purchaseCold">{{item.priceTotal| number : '.2-2'}}€</p>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-3">
+                      <p *ngIf="item.option === 'Chaude'" class="purchaseHot">{{item.quantity}}x</p>
+                      <p *ngIf="item.option === 'Froide'" class="purchaseCold">{{item.quantity}}x</p>
+                    </div>
+                    <div class="col-lg-3 col-md-3 col-3">
+                      <fa-icon *ngIf="item.option === 'Chaude'" [routerLink]="['/details',item.idPizza]"
+                        class="trashHot" [icon]="faPlusMinus"></fa-icon>
+                      <fa-icon *ngIf="item.option === 'Froide'" [routerLink]="['/details',item.idPizza]"
+                        class="trashCold" [icon]="faPlusMinus"></fa-icon>
+                    </div>
                   </div>
-                  </div>
-
-
                 </div>
               </div>
             </div>
@@ -37,18 +59,38 @@
       </div>
     </div>
   </div>
+  <div class="card text-center mt-5 mb-5">
+    <h2 class="card-header">Votre panier</h2>
+    <div class="card-body">
+      <h5 class="card-title total">TOTAL</h5>
+      <p class="card-text price mb-3">{{priceTotal | number : '.2-2'}}€</p>
+    </div>
+  </div>
+  <div class="col-lg-12">
+    <div class="d-flex justify-content-center">
+      <div class="text-center mb-5 trashDiv">
+        <div>
+          <button *ngIf="priceTotal === 0 " (click)="removeAll()" disabled class="btn btn-danger text-center">Vider le panier</button>
+          <button *ngIf="priceTotal > 0 " (click)="removeAll()" class="btn btn-danger text-center">Vider le panier</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
   <!--FOOTER-->
 
   <div class="container-fluid footer">
     <div class="row">
-      <div class=" d-flex justify-content-between">
+      <div class=" d-flex justify-content-between mb-3">
         <div>
           <button [routerLink]="['/main']" class="btn btn-danger text-center buttonRetour ">RETOUR AUX PRODUITS</button>
         </div>
         <div>
-          <button [routerLink]="['/purchase']" class="btn btn-success text-center buttonPanier ">PAYER LA
+          <button *ngIf="priceTotal === 0 "  disabled class="btn btn-success text-center buttonPanier ">PAYER LA
             COMMANDE</button>
+            <button *ngIf="priceTotal > 0 " [routerLink]="['/order']" class="btn btn-success text-center buttonPanier ">PAYER LA
+              COMMANDE</button>
         </div>
       </div>
     </div>
@@ -60,4 +102,3 @@
 
 
 
-</div>

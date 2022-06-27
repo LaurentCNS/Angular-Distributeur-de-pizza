@@ -58,7 +58,8 @@ export class DetailsComponent implements OnInit {
     this.pizzaAdded.name  = this.pizzas.name;
     this.pizzaAdded.picture = this.pizzas.picture;
     this.pizzaAdded.price = this.pizzas.priceHot;
-    this.pizzaAdded.id = Math.floor(Math.random() * (9999999 - 1000000 + 1)) + 1000000;
+    this.pizzaAdded.idPizza = this.pizzas.id;
+    this.pizzaAdded.idOrder = Math.floor(Math.random() * (9999999 - 1000000 + 1)) + 1000000;
     this.pizzaAdded.option = "Chaude";  // Assignation de l'option pizza chaude
   }
 
@@ -66,7 +67,8 @@ export class DetailsComponent implements OnInit {
     this.pizzaAdded.name  = this.pizzas.name;
     this.pizzaAdded.picture = this.pizzas.picture;
     this.pizzaAdded.price = this.pizzas.priceCold;
-    this.pizzaAdded.id = Math.floor(Math.random() * (9999999 - 1000000 + 1)) + 1000000;
+    this.pizzaAdded.idPizza = this.pizzas.id;
+    this.pizzaAdded.idOrder = Math.floor(Math.random() * (9999999 - 1000000 + 1)) + 1000000;
     this.pizzaAdded.option = "Froide"; // Assignation de l'option pizza froide
   }
 

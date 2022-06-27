@@ -92,7 +92,7 @@ export class PizzaChoiceService {
         }
       }
     }
-    this.priceTotalBasket();
+    this.priceTotalBasket(); 
   }
 
 
@@ -104,5 +104,20 @@ export class PizzaChoiceService {
   }
 
 
+  choiceById(id:number) : pizzaChoice{
+    let elemToReturn : pizzaChoice;
+    elemToReturn = this.command.filter(pizzaCommand => pizzaCommand.idOrder === id)[0];
+    return elemToReturn
+  }
 
+  removeOne(id:number):void{
+    this.command = this.command.filter(pizzaCommand => pizzaCommand.idOrder != id);
+  }
+
+  removeAll():void{
+    this.command = [];
+    this.priceTotal = 0;
+  }
+
+ 
 }
