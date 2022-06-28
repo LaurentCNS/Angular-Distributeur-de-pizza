@@ -1,11 +1,23 @@
 <app-header></app-header>
 <div class="container">
     <div class="row justify-content-center">
-  <div class="col-lg-6">
+  <div *ngIf="isReady === false" class="col-lg-6">
     <div class="progress mt-5">
-      <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75"
-        aria-valuemin="0" aria-valuemax="100" style="width: 25%"></div>
+      <div class="progress-bar progress-bar-striped bg-danger progress-bar-animated" role="progressbar" aria-valuenow="75"
+        aria-valuemin="0" aria-valuemax="100" [ngStyle]="{'width': progress + '%'}"></div>
+    </div>
+    <p *ngIf="estimateTime < 1 && isReady === false" class="text-center">Temps estimé: moins de 1 minute (10s par pizza)</p>
+    <p *ngIf="estimateTime >= 1 && estimateTime < 1.5 && isReady === false" class="text-center">Temps estimé: environ 1 minute (10s par pizza)</p>
+    <p *ngIf="estimateTime >= 1.5 && isReady === false" class="text-center">Temps estimé: environ {{estimateTime | number : '1.0-0' }}  minutes (10s par pizza)</p>
+  </div>
+  <div *ngIf="isReady === true" class="col-lg-6">
+    <div class="progress mt-5">
+      <div class="progress-bar bg-success" role="progressbar" style="width: 100%;" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100">C'est prêt !</div>
     </div>
   </div>
 </div>
 </div>
+
+
+
+

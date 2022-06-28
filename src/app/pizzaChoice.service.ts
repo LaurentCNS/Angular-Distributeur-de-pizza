@@ -8,7 +8,7 @@ export class PizzaChoiceService {
 
   command: pizzaChoice[] = []
   priceTotal: number = 0;
-
+  totalQuantity : number = 0;
 
 
   constructor() { }
@@ -118,6 +118,14 @@ export class PizzaChoiceService {
     this.command = [];
     this.priceTotal = 0;
   }
+
+  totalQuantityPizzas():number{
+    this.totalQuantity = 0;
+    for (let i = 0; i < this.command.length; i++) {
+      this.totalQuantity += this.command[i].quantity;
+    }
+    return this.totalQuantity;
+  }  
 
  
 }

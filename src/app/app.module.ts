@@ -3,7 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { NgbModule, NgbProgressbarModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HeaderComponent } from './header/header.component';
 import { HomeComponent } from './home/home.component';
@@ -22,6 +22,7 @@ import { ViewComponent } from './view/view.component';
 import { PurchaseComponent } from './purchase/purchase.component';
 import { OrderComponent } from './order/order.component';
 import { ProcessComponent } from './process/process.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 
 
 
@@ -44,6 +45,7 @@ import { ProcessComponent } from './process/process.component';
     PurchaseComponent,
     OrderComponent,
     ProcessComponent,
+    
    
   ],
   imports: [
@@ -55,10 +57,13 @@ import { ProcessComponent } from './process/process.component';
     ToastrModule.forRoot({timeOut: 5000,
     positionClass: 'toast-bottom-right',
     preventDuplicates: true,
-    progressBar: true,
     progressAnimation: 'increasing',         
     }),
     FontAwesomeModule,
+    NgbProgressbarModule,
+    MatProgressBarModule,
+    
+    
     
     
   
