@@ -9,6 +9,7 @@ import { ListComponent } from './list/list.component';
 import { LoginComponent } from './login/login.component';
 import { MainComponent } from './main/main.component';
 import { OrderComponent } from './order/order.component';
+import { ProcessComponent } from './process/process.component';
 import { PurchaseComponent } from './purchase/purchase.component';
 import { StartComponent } from './start/start.component';
 import { ViewComponent } from './view/view.component';
@@ -27,6 +28,7 @@ const routes: Routes = [
   { path: 'purchase', component: PurchaseComponent },
   { path: 'purchase/:id', component: PurchaseComponent },
   { path: 'order', component: OrderComponent },
+  { path: 'process', component: ProcessComponent },
 ];
 
 @NgModule({

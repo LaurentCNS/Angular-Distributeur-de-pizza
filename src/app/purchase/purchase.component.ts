@@ -32,7 +32,7 @@ export class PurchaseComponent implements OnInit {
 
   removeAll(){
     this.pizzaChoiceService.removeAll();
-    this.toastr.success('Le panier est vide!')
+    // this.toastr.success('Le panier est vide!')
     this.router.navigate(['/purchase/empty']);
     
   }

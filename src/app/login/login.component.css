@@ -60,3 +60,15 @@ input
     color: white;
     margin-bottom: 30px;
 }
+
+.span{
+    font-size: 17px;
+}
+
+@media (max-width: 453px) { 
+
+    .span{
+        font-size: 14px;
+    }
+
+ }

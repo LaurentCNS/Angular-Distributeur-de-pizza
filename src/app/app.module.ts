@@ -21,6 +21,7 @@ import { EditComponent } from './edit/edit.component';
 import { ViewComponent } from './view/view.component';
 import { PurchaseComponent } from './purchase/purchase.component';
 import { OrderComponent } from './order/order.component';
+import { ProcessComponent } from './process/process.component';
 
 
 
@@ -42,6 +43,7 @@ import { OrderComponent } from './order/order.component';
     ViewComponent,
     PurchaseComponent,
     OrderComponent,
+    ProcessComponent,
    
   ],
   imports: [
@@ -50,7 +52,12 @@ import { OrderComponent } from './order/order.component';
     NgbModule,
     BrowserAnimationsModule,
     FormsModule,
-    ToastrModule.forRoot({timeOut: 5000}),
+    ToastrModule.forRoot({timeOut: 5000,
+    positionClass: 'toast-bottom-right',
+    preventDuplicates: true,
+    progressBar: true,
+    progressAnimation: 'increasing',         
+    }),
     FontAwesomeModule,
     
     
