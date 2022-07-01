@@ -38,7 +38,11 @@ export class PizzasService {
   }
 
   
-
+  addPizza(pizzaForm : Pizza):void{
+    this.pizzaCreate.push(pizzaForm);
+    console.log(this.pizzaCreate);
+    
+  }
 
 
 

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, RouterLink } from '@angular/router';
 import { PizzaChoiceService } from '../pizzaChoice.service';
 
 
@@ -14,12 +15,16 @@ export class ProcessComponent implements OnInit {
   quantityPizzasForTimer: number = this.pizzaChoiceService.totalQuantityPizzas();
   estimateTime: number = this.estimateTimeDelivery();
   isReady: boolean = false;
+  audio = new Audio();
 
-  constructor(private pizzaChoiceService: PizzaChoiceService,) { }
+  constructor(private pizzaChoiceService: PizzaChoiceService,
+              private router : Router) { }
 
   ngOnInit(): void {
     this.progressBar();
     console.log(this.progress);
+    this.audio.src = "../../assets/sound/Success-sound-effect.mp3";
+    this.audio.load();
   }
 
   // fonction qui d'incrémentation la barre de progression
@@ -31,7 +36,10 @@ export class ProcessComponent implements OnInit {
         console.log(this.progress);
       }
       if (this.progress === 100) {
+        this.playsound();
         this.isReady = true;
+        this.pizzaChoiceService.removeAll();
+
       }
     }, 100 * this.quantityPizzasForTimer);
 
@@ -43,10 +51,14 @@ export class ProcessComponent implements OnInit {
   }
 
 
+  resetAndReturn(){
+    this.pizzaChoiceService.removeAll();
+    this.router.navigate(['/home']);
+  }
 
-
-
-
+  playsound(){   
+    this.audio.play();
+  }
 
 
 }
