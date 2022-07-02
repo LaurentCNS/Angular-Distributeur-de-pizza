@@ -4,7 +4,7 @@
     <h2>Espace création de nouvelles pizzas</h2>
     <h3>Vous êtes sur le point de creer une pizza, suivez étape par étape :</h3>
     <fa-icon class="info pe-2" [icon]="faInfo"></fa-icon>
-    <span>Mode démonstration: La gestion des photos et des points sont indisponibles dans ce mode.</span>
+    <span>Mode démonstration: La gestion des photos et des points de fidélités sont indisponibles dans ce mode.</span>
   </div>
   <div *ngIf="step===1" class="row d-flex justify-content-center ">
     <div class=" col-lg-6 mt-5 mb-5">
@@ -31,14 +31,14 @@
         <form #form="ngForm" (ngSubmit)="pizzaAddValue()">
           <div class="form-group mt-3 ps-5 pe-5">
             <label for="priceCold"></label>
-            <input type="number" class="form-control" placeholder="Prix de la pizza froide" id="priceCold" name="priceCold" #priceCold="ngModel"
-              maxlength="5" required [(ngModel)]="pizzaForm.priceCold">
+            <input type="number" class="form-control" placeholder="Prix de la pizza froide" id="priceCold"
+              name="priceCold" #priceCold="ngModel" maxlength="5" required [(ngModel)]="pizzaForm.priceCold">
             <div [hidden]="priceCold.valid" class="alert-danger text-danger mb-3">Ce champs est obligatoire</div>
           </div>
           <div class="form-group mt-3 ps-5 pe-5">
             <label for="priceHot"></label>
-            <input type="number" class="form-control" placeholder="Prix de la pizza chaude" id="priceHot" name="priceHot" #priceHot="ngModel"
-              maxlength="5" required [(ngModel)]="pizzaForm.priceHot">
+            <input type="number" class="form-control" placeholder="Prix de la pizza chaude" id="priceHot"
+              name="priceHot" #priceHot="ngModel" maxlength="5" required [(ngModel)]="pizzaForm.priceHot">
             <div [hidden]="priceHot.valid" class="alert-danger text-danger mb-3">(Conseillé + 0.40)</div>
           </div>
           <div class="bouton-form mt-3">
@@ -48,7 +48,7 @@
       </div>
     </div>
   </div>
-  
+
   <div *ngIf="step===3" class="row d-flex justify-content-center ">
     <div class=" col-lg-6 mt-5 mb-5">
       <div class="card text-center ">
@@ -56,8 +56,8 @@
         <form #form="ngForm" (ngSubmit)="pizzaAddValue()">
           <div class="form-group mt-3 ps-5 pe-5">
             <label for="ingredientNb"></label>
-            <input type="number" class="form-control" placeholder="Indiquer un nombre" id="ingredientNb" name="ingredientNb" #ingredientNb="ngModel"
-              maxlength="2" required [(ngModel)]="numberForIngredient">
+            <input type="number" class="form-control" placeholder="Indiquer un nombre" id="ingredientNb"
+              name="ingredientNb" #ingredientNb="ngModel" maxlength="2" required [(ngModel)]="numberForIngredient">
             <div [hidden]="ingredientNb.valid" class="alert-danger text-danger mb-3">Ce champs est obligatoire</div>
           </div>
           <div class="bouton-form mt-3">
@@ -68,17 +68,18 @@
     </div>
   </div>
   <div *ngIf="step===4" class="row d-flex justify-content-center ">
-    <div  class=" col-lg-6 mt-5 mb-5">
+    <div class=" col-lg-6 mt-5 mb-5">
       <div class="card text-center ">
         <h1 class="mt-5"><b>4. INDIQUER LE NOM DES INGREDIENTS</b></h1>
-        <form  #form="ngForm" (ngSubmit)="pizzaAddValue()">
+        <form #form="ngForm" (ngSubmit)="pizzaAddValue()">
           <div *ngFor="let item of counter(numberForIngredient); let i = index" class="form-group mt-3 ps-5 pe-5">
             <label for="ingredient"></label>
-            <input type="text" class="form-control" placeholder="Indiquer le nom de l'ingrédient {{i+1}}" id="ingredient" name="ingredient" #ingredient="ngModel"
-              maxlength="15" required [(ngModel)]="composants[i]">
+            <input type="text" class="form-control" placeholder="Indiquer le nom de l'ingrédient {{i+1}}"
+              id="ingredient" name="ingredient" #ingredient="ngModel" maxlength="15" required
+              [(ngModel)]="composants[i]">
           </div>
           <div class="bouton-form mt-3">
-            <button  class="btn btn-warning mt-3 mb-5" type="submit">SUIVANT</button>
+            <button class="btn btn-warning mt-3 mb-5" type="submit">SUIVANT</button>
           </div>
         </form>
       </div>
@@ -91,8 +92,8 @@
         <form #form="ngForm" (ngSubmit)="pizzaSubmit()">
           <div class="form-group mt-3 ps-5 pe-5">
             <label for="sante"></label>
-            <input type="text" class="form-control" placeholder="Allergène et nutriscore" id="sante" name="sante" #sante="ngModel"
-              maxlength="25" required [(ngModel)]="pizzaForm.information">
+            <input type="text" class="form-control" placeholder="Allergène et nutriscore" id="sante" name="sante"
+              #sante="ngModel" maxlength="25" required [(ngModel)]="pizzaForm.information">
           </div>
           <div class="bouton-form mt-3">
             <button class="btn btn-warning mt-3 mb-5" type="submit">CREER LA PIZZA</button>
@@ -102,56 +103,16 @@
     </div>
   </div>
 </div>
-
-
-
-
-
-
-<!-- <form #form="ngForm" (ngSubmit)="composantsSubmit()">
-      <div class="form-group mt-3 ps-5 pe-5">
-        <label for="composants"></label>
-        <input type="text" class="form-control" placeholder="Ingrédients de la pizza" id="composants" name="composants" #name="ngModel"
-          maxlength="25" required [(ngModel)]="composants[0]">
-      </div>
-      <div class="form-group mt-3 ps-5 pe-5">
-        <label for="composants"></label>
-        <input type="text" class="form-control" placeholder="Ingrédients de la pizza" id="composants" name="composants" #name="ngModel"
-          maxlength="25" required [(ngModel)]="composants[1]">
-      </div>
-      <div class="bouton-form mt-3">
-        <button [disabled]="!form.valid" class="btn btn-warning ms-3 mt-3 mb-4" type="submit">ENOYER</button>
-      </div>
-    </form>
+<div *ngIf="step===6" class="row d-flex justify-content-center ">
+  <div class=" col-lg-6 mt-5 mb-5">
+    <div class="card text-center ">
+      <h1 class="mt-5"><b>BRAVO, NOUVELLE PIZZA PRÊTE !</b></h1>
+    
+        
+        <div class="bouton-form mt-3">
+          <button [routerLink]="['/view',pizzaForm.id]" class="btn btn-warning mt-3 mb-5" type="submit">VOIR LA PIZZA</button>
+        </div>
+      
+    </div>
   </div>
-  <div class="card">
-    <form #form="ngForm" (ngSubmit)="pizzaSubmit()">
-      <div class="form-group mt-3 ps-5 pe-5">
-        <label for="name"></label>
-        <input type="text" class="form-control" placeholder="Nom de la pizza" id="name" name="name" #name="ngModel"
-          maxlength="25" required [(ngModel)]="pizzaForm.name">
-        <div [hidden]="name.valid" class="alert-danger text-danger mb-3">Ce champs est obligatoire</div>
-      </div>
-      <div class="form-group ps-5 pe-5">
-        <label for="priceCold"></label>
-        <input type="text" class="form-control" placeholder="Prix de la pizza froide" id="priceCold" name="priceCold"
-          #priceCold="ngModel" maxlength="10" required [(ngModel)]="pizzaForm.priceCold">
-        <div [hidden]="priceCold.valid" class="alert-danger text-danger mb-3">Ce champs est obligatoire</div>
-      </div>
-      <div class="form-group ps-5 pe-5">
-        <label for="priceHot"></label>
-        <input type="text" class="form-control" placeholder="Prix de la pizza chaude" id="priceHot" name="priceHot"
-          #priceHot="ngModel" maxlength="10" required [(ngModel)]="pizzaForm.priceHot">
-        <div [hidden]="priceHot.valid" class="alert-danger text-danger mb-3">Ce champs est obligatoire</div>
-      </div>
-      <div class="form-group ps-5 pe-5">
-        <label for="bonus"></label>
-        <input type="text" class="form-control" placeholder="Coût de la pizza en points" id="bonus" name="bonus"
-          #bonus="ngModel" maxlength="10" [(ngModel)]="pizzaForm.bonus">
-      </div>
-      <div class="bouton-form mt-3">
-        <button [disabled]="!form.valid" class="btn btn-warning ms-3 mt-3 mb-4" type="submit">ENOYER</button>
-      </div>
-    </form>
-  </div>
-</div>-->
+</div>

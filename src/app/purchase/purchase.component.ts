@@ -25,7 +25,7 @@ export class PurchaseComponent implements OnInit {
               private toastr : ToastrService) { }
 
   ngOnInit(): void {
-  console.log(this.deleteValidation);
+  // console.log(this.deleteValidation);
   
   }
 

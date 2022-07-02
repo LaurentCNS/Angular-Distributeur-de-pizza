@@ -27,7 +27,7 @@ export class ViewComponent implements OnInit {
   ngOnInit(): void{
     let id = parseInt(<string>this.activatedRoute.snapshot.paramMap.get('id'));
     this.pizza = this.pizzasService.choiceById(id);
-    console.log(this.pizza);
+    // console.log(this.pizza);
     
   }
 

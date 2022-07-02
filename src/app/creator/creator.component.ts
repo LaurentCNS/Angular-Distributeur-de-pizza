@@ -27,24 +27,24 @@ export class CreatorComponent implements OnInit {
 
   composantsSubmit() {
 
-    console.log(this.composants);
+    // console.log(this.composants);
   }
 
   pizzaAddValue() {
     this.step++;
-    console.log(this.pizzaForm);
+    // console.log(this.pizzaForm);
 
   }
 
   pizzaSubmit() {
-    // pousser le tableau composants dans pizzaForm
+    // pousser le tableau composants (ingredients) dans pizzaForm
     this.pizzaForm.composants = this.composants;
     this.pizzaForm.id = Date.now();
-    this.pizzaForm.picture = 'img10.jpg';
+    this.pizzaForm.picture = 'empty.jpg';
     this.pizzaForm.bonus = 10;
     this.pizzasService.addPizza(this.pizzaForm);
-    this.toastrService.success("Pizza créée", "Félicitations");
-    this.router.navigate(["/admin"])
+    this.toastrService.success("Pizza créée, Félicitation !");
+    this.step++;
     // console.log(this.pizzaForm);
   }
 

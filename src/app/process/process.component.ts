@@ -22,7 +22,7 @@ export class ProcessComponent implements OnInit {
 
   ngOnInit(): void {
     this.progressBar();
-    console.log(this.progress);
+    // console.log(this.progress);
     this.audio.src = "../../assets/sound/Success-sound-effect.mp3";
     this.audio.load();
   }
@@ -33,7 +33,7 @@ export class ProcessComponent implements OnInit {
     setInterval(() => {
       if (this.progress !== 101) {
         this.progress++;
-        console.log(this.progress);
+        // console.log(this.progress);
       }
       if (this.progress === 100) {
         this.playsound();

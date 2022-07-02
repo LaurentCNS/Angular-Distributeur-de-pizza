@@ -36,7 +36,7 @@
 
 
       <div *ngFor="let item of pizzaForm.composants; let i = index; ;trackBy:trackByIdx"   class="form-group">
-         {{i}}
+         
         <label for="ingredient{{i}}"><strong>Ingrédient {{i +1}}</strong></label>
         
         <input type="text" class="form-control mb-3" id="ingredient{{i}}" name="ingredient{{i}}"
