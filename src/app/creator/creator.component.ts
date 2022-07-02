@@ -15,7 +15,7 @@ export class CreatorComponent implements OnInit {
   pizzaForm: Pizza = new Pizza();
   composants: string[] = [];
   step: number = 1;
-  numberForIngredient: number = 0;
+  numberForIngredient!: number;
   faInfo = faCircleInfo;
 
   constructor(private pizzasService: PizzasService,
@@ -52,5 +52,8 @@ export class CreatorComponent implements OnInit {
     return new Array(i);
   }
 
+  back() {
+    this.step--;
+  }
 
 }

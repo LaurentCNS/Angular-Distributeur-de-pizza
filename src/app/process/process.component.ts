@@ -35,7 +35,7 @@ export class ProcessComponent implements OnInit {
         this.progress++;
         // console.log(this.progress);
       }
-      if (this.progress === 100) {
+      if (this.progress === 100 && this.isReady === false) {
         this.playsound();
         this.isReady = true;
         this.pizzaChoiceService.removeAll();

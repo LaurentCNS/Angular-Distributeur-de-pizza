@@ -4,6 +4,17 @@
     padding-top: 80px;    
 }
 
+@media (min-width: 500px) { 
+
+    .login{
+        width: 100%; 
+        height: 100vh;
+        background-color: #E20131;
+        padding-top: 120px;    
+    }
+
+ }
+
 .button{
     width: 200px;
     height: 80px;

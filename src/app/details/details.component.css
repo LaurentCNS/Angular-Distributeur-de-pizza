@@ -171,14 +171,14 @@ h2{
 @media (max-width: 576px) {
 
     .counterCold{
-        font-size: 30px;
+        font-size: 22px;
         font-weight: bold;
         margin-top: 15px;
         color: rgb(48, 95, 248);
     }
     
     .counterHot{
-        font-size: 30px;
+        font-size: 22px;
         font-weight: bold;
         margin-top: 15px;
         color: red;

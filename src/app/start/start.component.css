@@ -25,10 +25,10 @@
     right: 5%;
 }
 
-@media (max-width: 280px) { 
+@media (max-width: 500px) { 
 
   img{
-    width: 280px;
+    display: none;
 }
 
 }
